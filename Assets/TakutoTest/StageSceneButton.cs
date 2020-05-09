@@ -10,6 +10,7 @@ public class StageSceneButton : MonoBehaviour
 
     [SerializeField] Text challengeText;
     [SerializeField] string stageName = "ステージ";
+    [SerializeField] string EXstageName = "隠しステージ";
     [SerializeField] string challenge = "に挑戦しますか？";
 
     static int stage = 0;
@@ -17,6 +18,7 @@ public class StageSceneButton : MonoBehaviour
     void Start()
     {
         selectManager = GetComponent<StageSelectManager>();
+        selectManager.StageOpenJudge();
     }
 
     public void OnClickBack()
@@ -27,8 +29,16 @@ public class StageSceneButton : MonoBehaviour
     public void OnClickOpenWindow()
     {
         selectManager.OpenSelectWindow();
-
-        challengeText.text = stageName + stage.ToString() + challenge;
+        if (stage < 4)
+        {
+            challengeText.fontSize = 30;
+            challengeText.text = stageName + stage.ToString() + challenge;
+        }
+        else
+        {
+            challengeText.fontSize = 25;
+            challengeText.text = EXstageName + (stage - 3).ToString() + challenge;
+        }
     }
 
     public void OnClickCloseWindow()
@@ -60,6 +70,15 @@ public class StageSceneButton : MonoBehaviour
                 break;
             case 3:
                 SceneManager.LoadScene("Stage3");
+                break;
+            case 4:
+                SceneManager.LoadScene("Stage1_");
+                break;
+            case 5:
+                SceneManager.LoadScene("Stage2_");
+                break;
+            case 6:
+                SceneManager.LoadScene("Stage3_");
                 break;
             default:
                 Debug.Log("不適切な数値が代入されました");
