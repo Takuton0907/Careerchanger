@@ -8,29 +8,30 @@ public class StageSelectManager : MonoBehaviour
 
     public GameObject[] dummyStage = new GameObject[0];
 
-    // Start is called before the first frame update
-    void Start()
+    public void StageOpenJudge()
     {
-        stageOpen(1);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for (int i = 1; i < 6; i++)
+        {
+            bool judge = FlagManager.Get(Stage.Stage1 + i).Clear;
+            if (judge)
+            {
+                stageOpen(i);
+            }
+        }
+        stageOpen(0);
     }
 
     public void stageOpen(int[] dummyNumber)
     {
         foreach (var item in dummyNumber)
         {
-            dummyStage[item - 1].SetActive(false);
+            dummyStage[item].SetActive(false);
         }
     }
 
     public void stageOpen(int dummyNumber)
     {
-       dummyStage[dummyNumber - 1].SetActive(false);  
+       dummyStage[dummyNumber].SetActive(false);  
     }
 
     public void OpenSelectWindow()
