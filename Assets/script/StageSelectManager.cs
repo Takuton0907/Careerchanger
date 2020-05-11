@@ -12,7 +12,7 @@ public class StageSelectManager : MonoBehaviour
     {
         for (int i = 1; i < 6; i++)
         {
-            bool judge = FlagManager.Get(Stage.Stage1 + i).Clear;
+            bool judge = FlagManager.Get(Stages.Stage1 + i).Clear;
             if (judge)
             {
                 stageOpen(i);
