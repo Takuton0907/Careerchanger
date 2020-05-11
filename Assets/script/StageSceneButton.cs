@@ -41,7 +41,7 @@ public class StageSceneButton : MonoBehaviour
             challengeText.fontSize = 25;
             challengeText.text = EXstageName + (stage - 3).ToString() + challenge;
         }
-        ScoerImageChange(Stage.Stage1 + stage);
+        ScoerImageChange(Stages.Stage1 + stage);
     }
 
     public void OnClickCloseWindow()
@@ -89,7 +89,7 @@ public class StageSceneButton : MonoBehaviour
         }
     }
 
-    private void ScoerImageChange(Stage index)
+    private void ScoerImageChange(Stages index)
     {
         uint scoer = FlagManager.Flag[index].MaxScoer;
         string ImagePath = string.Empty;
