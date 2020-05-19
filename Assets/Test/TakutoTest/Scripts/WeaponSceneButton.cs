@@ -1,19 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+
+public static partial class GameObjectExtensions
+{
+    public static bool HasChild(this GameObject gameObject)
+    {
+        return 0 < gameObject.transform.childCount;
+    }
+}
+
 
 public class WeaponSceneButton : MonoBehaviour
 {
     [SerializeField] Image WeaponImage;
     [SerializeField] Text WeaponText ;
     [SerializeField] TextAsset WeaponMasterDate;
-    [SerializeField] Button[] buttons = new Button[0];
+    [SerializeField] GameObject[] buttons = new GameObject[0];
+    [SerializeField] GameObject[] Select = new GameObject[0];
+    [SerializeField] float StartFadeInterval = 2;
+    [SerializeField] float BackFadeInterval = 2;
+
     LoadText loadText = new LoadText();
     DragObj dragObj;
 
     string[,] textDates;
+
     private void Start()
     {
         string date = loadText.LoadTextDate("Text/" + WeaponMasterDate.name);
@@ -22,7 +36,7 @@ public class WeaponSceneButton : MonoBehaviour
 
     public void OnClickBack()
     {
-        SceneManager.LoadScene("StageSelect");
+        Fade.Instance.LoadScene(BackFadeInterval, "StageSelect");
     }
 
     public void OnclickWeapon(GameObject obj)
@@ -112,11 +126,71 @@ public class WeaponSceneButton : MonoBehaviour
         {
             if ((int)weapon != i)
             {
-                buttons[i].image.sprite = Resources.Load<Sprite>("Sprite/" + (Weapons.Sword + i).ToString() + "Sprite");
+                buttons[i].GetComponentInChildren<Button>().image.sprite = Resources.Load<Sprite>("Sprite/" + (Weapons.Sword + i).ToString() + "Sprite");
             }
             else
             {
-                buttons[i].image.sprite = Resources.Load<Sprite>("Sprite/" + (Weapons.Sword + i).ToString() + "_Push");
+                buttons[i].GetComponentInChildren<Button>().image.sprite = Resources.Load<Sprite>("Sprite/" + (Weapons.Sword + i).ToString() + "_Push");
+            }
+        }
+    }
+
+    public void OnclickPlay()
+    {
+        bool playJudge = true;
+        foreach (var item in Select)
+        {
+            playJudge = item.HasChild();
+        }
+        if (playJudge)
+        {
+            switch (StageSceneButton.stage)
+            {
+                case 1:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        FlagManager.Flag[Stages.Stage1].LastWeapon[i] = Select[i].GetComponentInChildren<DragObj>().weapon;
+                    }
+                    Fade.Instance.LoadScene(StartFadeInterval, "Stage1");
+                    break;
+                case 2:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        FlagManager.Flag[Stages.Stage2].LastWeapon[i] = Select[i].GetComponentInChildren<DragObj>().weapon;
+                    }
+                    Fade.Instance.LoadScene(StartFadeInterval, "Stage2");
+                    break;
+                case 3:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        FlagManager.Flag[Stages.Stage3].LastWeapon[i] = Select[i].GetComponentInChildren<DragObj>().weapon;
+                    }
+                    Fade.Instance.LoadScene(StartFadeInterval, "Stage3");
+                    break;
+                case 4:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        FlagManager.Flag[Stages.Stage1_EX].LastWeapon[i] = Select[i].GetComponentInChildren<DragObj>().weapon;
+                    }
+                    Fade.Instance.LoadScene(StartFadeInterval, "Stage1_");
+                    break;
+                case 5:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        FlagManager.Flag[Stages.Stage2_EX].LastWeapon[i] = Select[i].GetComponentInChildren<DragObj>().weapon;
+                    }
+                    Fade.Instance.LoadScene(StartFadeInterval, "Stage2_");
+                    break;
+                case 6:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        FlagManager.Flag[Stages.Stage3_EX].LastWeapon[i] = Select[i].GetComponentInChildren<DragObj>().weapon;
+                    }
+                    Fade.Instance.LoadScene(StartFadeInterval, "Stage3_");
+                    break;
+                default:
+                    Debug.Log("不適切な数値が代入されました");
+                    break;
             }
         }
     }

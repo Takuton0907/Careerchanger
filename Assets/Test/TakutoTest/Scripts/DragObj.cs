@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class DragObj : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
@@ -8,20 +9,24 @@ public class DragObj : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     public Weapons weapon = 0;
     public Transform parentTransform;
     GameObject copyObj;
+    DragObj CopyDragObj;
+
     public void OnBeginDrag(PointerEventData data)
     {
         Debug.Log("OnBeginDrag");
         copyObj = Instantiate(gameObject, gameObject.transform.position, Quaternion.identity, transform.parent);
-        copyObj.name = gameObject.name;
-        GetComponent<CanvasGroup>().blocksRaycasts = false;
-        parentTransform = transform.parent;
-        transform.SetParent(transform.parent.parent);
+        copyObj.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprite/" + (weapon).ToString() + "Sprite");
+        copyObj.GetComponent<Button>().enabled = false;
+        //copyObj.name = gameObject.name;
+        copyObj.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        copyObj.GetComponent<DragObj>().parentTransform = transform.parent;
+        copyObj.transform.SetParent(transform.parent.parent);
     }
     public void OnDrag(PointerEventData data)
     {
         Vector3 TargetPos = Camera.main.ScreenToWorldPoint(data.position);
         TargetPos.z = -1;
-        transform.position = TargetPos;
+        copyObj.transform.position = TargetPos;
     }
     public void OnEndDrag(PointerEventData data)
     {
@@ -35,9 +40,9 @@ public class DragObj : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
                     Destroy(item.gameObject);
                 }
             }
-            transform.SetParent(parentTransform);
-            GetComponent<CanvasGroup>().blocksRaycasts = true;
-            transform.position = parentTransform.transform.position;
+            copyObj.transform.SetParent(parentTransform);
+            copyObj.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            copyObj.transform.position = parentTransform.transform.position;
         }
         else
         {

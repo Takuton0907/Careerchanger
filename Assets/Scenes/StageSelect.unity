@@ -1517,7 +1517,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1843485564}
-        m_MethodName: OnclickPlay
+        m_MethodName: OnClickWeaponSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
