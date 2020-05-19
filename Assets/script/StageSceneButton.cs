@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class StageSceneButton : MonoBehaviour
 {
@@ -13,8 +12,9 @@ public class StageSceneButton : MonoBehaviour
     [SerializeField] string EXstageName = "隠しステージ";
     [SerializeField] string challenge = "に挑戦しますか？";
     [SerializeField] Image ScoerImage = null;
+    [SerializeField] float fadeInterval = 1;
     
-    static int stage = 0;
+    public static int stage = 1;
     
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class StageSceneButton : MonoBehaviour
 
     public void OnClickBack()
     {
-        SceneManager.LoadScene("Title");
+        Fade.Instance.LoadScene(fadeInterval, "Title");
     }
 
     public void OnClickOpenWindow()
@@ -58,35 +58,7 @@ public class StageSceneButton : MonoBehaviour
 
     public void OnClickWeaponSelect()
     {
-        SceneManager.LoadScene("WeaponSelect")
-;    }
-
-    public void OnclickPlay()
-    {
-        switch (stage)
-        {
-            case 1:
-                SceneManager.LoadScene("Stage1");
-                break;
-            case 2:
-                SceneManager.LoadScene("Stage2");
-                break;
-            case 3:
-                SceneManager.LoadScene("Stage3");
-                break;
-            case 4:
-                SceneManager.LoadScene("Stage1_");
-                break;
-            case 5:
-                SceneManager.LoadScene("Stage2_");
-                break;
-            case 6:
-                SceneManager.LoadScene("Stage3_");
-                break;
-            default:
-                Debug.Log("不適切な数値が代入されました");
-                break;
-        }
+        Fade.Instance.LoadScene(fadeInterval, "WeaponSelect");
     }
 
     private void ScoerImageChange(Stages index)
