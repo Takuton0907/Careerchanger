@@ -18,9 +18,14 @@ public class DragObj : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         copyObj.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprite/" + (weapon).ToString() + "Sprite");
         copyObj.GetComponent<Button>().enabled = false;
         //copyObj.name = gameObject.name;
+
         copyObj.GetComponent<CanvasGroup>().blocksRaycasts = false;
         copyObj.GetComponent<DragObj>().parentTransform = transform.parent;
-        copyObj.transform.SetParent(transform.parent.parent);
+        copyObj.transform.SetParent(transform.parent.parent.parent);
+
+        copyObj.GetComponent<RectTransform>().sizeDelta = gameObject.GetComponent<RectTransform>().sizeDelta;
+        Debug.Log($"copyObj = { copyObj.GetComponent<RectTransform>().sizeDelta } {gameObject.GetComponent<RectTransform>().sizeDelta}");
+
     }
     public void OnDrag(PointerEventData data)
     {
