@@ -31,7 +31,7 @@ public class GameOverManager : MonoBehaviour
     /// <summary> ゲームオーバー時の処理をEventに登録 </summary>
     private void GetGameOverEvents()
     {
-        IGameoverEvent[] gameoverEvents = GameObjectExtension.FindObjectsOfInterface<IGameoverEvent>();
+        IGameoverEvent[] gameoverEvents = GameObjectExtensions.FindObjectsOfInterface<IGameoverEvent>();
         foreach (var item in gameoverEvents)
         {
             AddGameOverEvent += item.GameOver;

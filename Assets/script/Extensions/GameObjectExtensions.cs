@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public static class GameObjectExtension
+public static class GameObjectExtensions
 {
     /// <summary>
     /// 指定されたインターフェイスを実装したコンポーネントを持つオブジェクトを検索します
@@ -19,5 +19,11 @@ public static class GameObjectExtension
             }
         }
         return ts.ToArray();
+    }
+
+    /// <summary> 子オブジェクトを持っているかどうかの判定 </summary>
+    public static bool HasChild(this GameObject gameObject)
+    {
+        return 0 < gameObject.transform.childCount;
     }
 }

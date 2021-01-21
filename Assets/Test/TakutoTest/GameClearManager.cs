@@ -39,7 +39,7 @@ public class GameClearManager : MonoBehaviour
     /// <summary> ゲームクリア時の処理をEventに登録 </summary>
     private void GetGameClearEvents()
     {
-        IClearEvent[] gameoverEvents = GameObjectExtension.FindObjectsOfInterface<IClearEvent>();
+        IClearEvent[] gameoverEvents = GameObjectExtensions.FindObjectsOfInterface<IClearEvent>();
         foreach (var item in gameoverEvents)
         {
             AddGameClearEvent += item.Clear;
