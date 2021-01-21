@@ -6,6 +6,6 @@ public class TitleManager : MonoBehaviour
     
     public void OnClickGamaStart()
     {
-        Fade.Instance.LoadScene(fadeInterval, "StageSelect");
+        FadeManager.Instance.LoadScene("StageSelect", fadeInterval);
     }
 }
