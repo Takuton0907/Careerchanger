@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Stages
+public enum Stage
 {
     Stage1,
     Stage2,
@@ -35,18 +35,18 @@ public class Flags
 
 public class FlagManager
 {
-    public static Dictionary<Stages, Flags> Flag = new Dictionary<Stages, Flags>();
+    public static Dictionary<Stage, Flags> Flag = new Dictionary<Stage, Flags>();
 
     [RuntimeInitializeOnLoadMethod]
     static void GameStart()
     {
         for (int i = 0; i < 6; i++)
         {
-            Flag.Add(Stages.Stage1 + i, new Flags());
+            Flag.Add(Stage.Stage1 + i, new Flags());
         }
     }
 
-    public static Flags Get(Stages key)
+    public static Flags Get(Stage key)
     {
         return Flag[key];
     }

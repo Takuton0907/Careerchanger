@@ -16,12 +16,8 @@ public class StageData
     public Stage stageNum;
     [Header("ステージのprefab")]
     public GameObject stage;
-    [Header("ステージのクリア情報")]
-    public bool stageClear;
     [Header("スコアのランク分け")]
     public ScoreRank scoreRankDate;
-    [Header("最大スコア")]
-    public int score;
     [Header("BGMの名前")]
     public string stageBgmName;
 }

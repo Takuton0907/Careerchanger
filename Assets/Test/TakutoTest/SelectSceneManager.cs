@@ -50,16 +50,3 @@ public class SelectSceneManager : SingletonMonoBehaviour<SelectSceneManager>
         FadeManager.Instance.LoadScene("Game", 2);
     }
 }
-
-public enum Stage
-{
-    Stage1,
-    Stage2,
-    Stage3,
-    Stage4,
-    Stage5,
-    Stage6,
-    Stage7,
-    Stage8,
-    Stage9,
-}

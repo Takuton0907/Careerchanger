@@ -46,9 +46,8 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
                 Debug.LogError($"{stage}は存在しません");
                 break;
             }
-            if (!stageDatas[i].stageClear) return false;
+            if (!FlagManager.Flag[stage].Clear) return false;
         }
-
         return true;
     }
 
@@ -56,16 +55,15 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     public void LevelSelect(Stage stage)
     {
         StageSet(stageDatas[(int)stage]);
-        //StartCoroutine(LevelLoad());
     }
 
     public void StageClear()
     {
-        for (int i = 0; i < stageDatas.Length; i++)
+        for (int i = 0; i < FlagManager.Flag.Count; i++)
         {
             if (m_nextStage.stageNum == stageDatas[i].stageNum)
             {
-                stageDatas[i].stageClear = true;
+                FlagManager.Flag[Stage.Stage1 + i].Clear = true;
                 break;
             }
         }
