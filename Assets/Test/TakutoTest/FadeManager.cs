@@ -23,23 +23,11 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
     /// <summary> フェードさせる際のUI </summary>
     [SerializeField, Header("背景Image")] Image fadeImage = null;
 
-    [SerializeField, Header("キャラクターImage")] CanvasGroup UIs = null;
+    //[SerializeField, Header("キャラクターImage")] CanvasGroup UIs = null;
 
-    [SerializeField, Header("キャラクターアニメーター")] Animator animator = null;
+    //[SerializeField, Header("キャラクターアニメーター")] Animator animator = null;
 
     [SerializeField, Header("強制的に止める時間")] float intervalTime = 1f; 
-
-    public new void Awake()
-    {
-        base.Awake();
-        if (this != Instance)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-
-        //DontDestroyOnLoad(this.gameObject);
-    }
 
     //public void OnGUI()
     //{
@@ -116,12 +104,12 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
         }
 
         //キャラクターフェードイン
-        animator.enabled = true;
-        animator.Play("anim");
+        //animator.enabled = true;
+        //animator.Play("anim");
         time = 0;
         while (time <= 0.5f)
         {
-            UIs.alpha = fadeAlpha;
+            //UIs.alpha = fadeAlpha;
             this.fadeAlpha = Mathf.Lerp(0f, 1f, time / 0.5f);
             time += Time.deltaTime;
             yield return null;
@@ -140,12 +128,12 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
         time = 0;
         while (time <= 0.5f)
         {
-            UIs.alpha = fadeAlpha;
+            //UIs.alpha = fadeAlpha;
             this.fadeAlpha = Mathf.Lerp(1f, 0f, time / 0.5f);
             time += Time.deltaTime;
             yield return null;
         }
-        animator.enabled = false;
+        //animator.enabled = false;
 
         //背景フェードアウト
         time = 0;
