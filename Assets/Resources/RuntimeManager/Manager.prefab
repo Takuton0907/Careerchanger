@@ -1647,15 +1647,31 @@ MonoBehaviour:
   m_nextStage:
     stageNum: 0
     stage: {fileID: 0}
-    stageClear: 0
     scoreRankDate: {fileID: 0}
-    score: 0
     stageBgmName: 
   stageDatas:
   - stageNum: 0
     stage: {fileID: 0}
-    stageClear: 0
     scoreRankDate: {fileID: 0}
-    score: 0
+    stageBgmName: 
+  - stageNum: 1
+    stage: {fileID: 0}
+    scoreRankDate: {fileID: 0}
+    stageBgmName: 
+  - stageNum: 2
+    stage: {fileID: 0}
+    scoreRankDate: {fileID: 0}
+    stageBgmName: 
+  - stageNum: 3
+    stage: {fileID: 0}
+    scoreRankDate: {fileID: 0}
+    stageBgmName: 
+  - stageNum: 4
+    stage: {fileID: 0}
+    scoreRankDate: {fileID: 0}
+    stageBgmName: 
+  - stageNum: 5
+    stage: {fileID: 0}
+    scoreRankDate: {fileID: 0}
     stageBgmName: 
   scoreRank: {fileID: 0}

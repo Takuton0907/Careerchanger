@@ -9,7 +9,6 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     [SerializeField]
     private StageData m_nextStage = null;
 
-    [SerializeField]
     [Header("Size = 全部のステージ数")]
     public StageData[] stageDatas = new StageData[1];
 

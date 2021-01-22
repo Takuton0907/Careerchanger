@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class SelectSceneManager : SingletonMonoBehaviour<SelectSceneManager>
 {
-    [SerializeField]
-    StageSelector m_stageSelector = null;
-
     PlaySelecter m_playSelecter = null;
 
     [Header("再生するBGMの名前")]
@@ -14,7 +11,6 @@ public class SelectSceneManager : SingletonMonoBehaviour<SelectSceneManager>
     private new void Awake()
     {
         base.Awake();
-        //AudioManager.Instance.PlayBGM(m_bgmAudio.name);
         m_playSelecter = FindObjectOfType<PlaySelecter>();
     }
 
@@ -43,7 +39,6 @@ public class SelectSceneManager : SingletonMonoBehaviour<SelectSceneManager>
         AudioManager.Instance.PlaySE("tap");
     }
 
-    //遷移時に何かしらの演出がしたいと思ったのでとりあえず用意
     IEnumerator LevelLoad()
     {
         yield return null;
