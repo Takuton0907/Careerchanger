@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugMode: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
-  fadeImage: {fileID: 4608240100678888484}
+  fadeImage: {fileID: 0}
   intervalTime: 1
 --- !u!1 &1827469887729248282
 GameObject:
@@ -1651,26 +1651,6 @@ MonoBehaviour:
     stageBgmName: 
   stageDatas:
   - stageNum: 0
-    stage: {fileID: 0}
-    scoreRankDate: {fileID: 0}
-    stageBgmName: 
-  - stageNum: 1
-    stage: {fileID: 0}
-    scoreRankDate: {fileID: 0}
-    stageBgmName: 
-  - stageNum: 2
-    stage: {fileID: 0}
-    scoreRankDate: {fileID: 0}
-    stageBgmName: 
-  - stageNum: 3
-    stage: {fileID: 0}
-    scoreRankDate: {fileID: 0}
-    stageBgmName: 
-  - stageNum: 4
-    stage: {fileID: 0}
-    scoreRankDate: {fileID: 0}
-    stageBgmName: 
-  - stageNum: 5
     stage: {fileID: 0}
     scoreRankDate: {fileID: 0}
     stageBgmName: 

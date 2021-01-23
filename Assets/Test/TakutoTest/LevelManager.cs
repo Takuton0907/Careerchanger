@@ -26,6 +26,13 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
         set { if (m_enemyManager == null) m_enemyManager = value; }
     }
 
+    private LifeManager m_lifeManager;
+    public LifeManager LifeManager
+    {
+        get { return m_lifeManager; }
+        set {if (m_lifeManager == null){ m_lifeManager = value; }}
+    }
+
     private LevelIntervalCon m_intervalCon;
     public LevelIntervalCon LevelIntervalCon
     {
@@ -234,30 +241,4 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
     public void GamePlay() => StateChange(LevelState.Play);
     /// <summary> チュートリアルの開始 </summary>
     public void TutorialPlay() => StateChange(LevelState.Tutorial);
-    /// <summary> TimeScalの変更 </summary>
-    public void ChangeTimeScale(TimeScaleType type)
-    {
-        switch (type)
-        {
-            case TimeScaleType.Nomal:
-                Time.timeScale = 1;
-                break;
-            case TimeScaleType.Zero:
-                Time.timeScale = 0;
-                break;
-            case TimeScaleType.LineAction:
-                Time.timeScale = 0.3f;
-                break;
-        }
-    }
-}
-
-public enum TimeScaleType
-{
-    /// <summary> TimeScal = 1 </summary>
-    Nomal,
-    /// <summary> TimeScal = 0 </summary>
-    Zero,
-    /// <summary> 線を引いている最中のTimeScal </summary>
-    LineAction,
 }
