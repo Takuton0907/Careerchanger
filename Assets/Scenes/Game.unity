@@ -223,21 +223,6 @@ PrefabInstance:
       propertyPath: m_countText
       value: 
       objectReference: {fileID: 240958229}
-    - target: {fileID: 1459135287, guid: 040096e396751f94db6078ef811fab68, type: 3}
-      propertyPath: m_hitImage
-      value: 
-      objectReference: {fileID: 693419600514857525, guid: 40cd2591a3e70d3479adfad0a03ed687,
-        type: 3}
-    - target: {fileID: 1459135287, guid: 040096e396751f94db6078ef811fab68, type: 3}
-      propertyPath: m_deathEffect
-      value: 
-      objectReference: {fileID: 693419600514857525, guid: 40cd2591a3e70d3479adfad0a03ed687,
-        type: 3}
-    - target: {fileID: 1459135287, guid: 040096e396751f94db6078ef811fab68, type: 3}
-      propertyPath: m_confettiEffect
-      value: 
-      objectReference: {fileID: 693419600514857525, guid: 40cd2591a3e70d3479adfad0a03ed687,
-        type: 3}
     - target: {fileID: 3904998424452916294, guid: 040096e396751f94db6078ef811fab68,
         type: 3}
       propertyPath: m_Name

@@ -176,9 +176,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceb224050cd8cc4da03e5f366a87bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hitImage: {fileID: 0}
-  m_deathEffect: {fileID: 0}
-  m_confettiEffect: {fileID: 0}
+  m_hitImage: {fileID: 693419600514857525, guid: 40cd2591a3e70d3479adfad0a03ed687,
+    type: 3}
+  m_deathEffect: {fileID: 693419600514857525, guid: 40cd2591a3e70d3479adfad0a03ed687,
+    type: 3}
+  m_confettiEffect: {fileID: 693419600514857525, guid: 40cd2591a3e70d3479adfad0a03ed687,
+    type: 3}
 --- !u!1 &2031105833
 GameObject:
   m_ObjectHideFlags: 0

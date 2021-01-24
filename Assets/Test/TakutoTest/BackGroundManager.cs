@@ -18,7 +18,7 @@ public class BackGroundManager : MonoBehaviour
     [Header("クリア時までの背景調整")]
     [SerializeField] float m_clearOffset = 30;
 
-    Transform[] m_clouds = new Transform[2];
+    Transform[] m_repeatedlyImages = new Transform[2];
 
     float m_cloudRetunePosiX = 20;
     /// <summary> プレイヤーのTransform </summary>
@@ -35,7 +35,6 @@ public class BackGroundManager : MonoBehaviour
     Vector3 m_middleStartPosi;
     Vector3 m_frontStartPosi;
     Vector3 m_skyStartPosi;
-    Vector2 m_playerLastPosi;
 
     private void Awake()
     {
@@ -44,8 +43,8 @@ public class BackGroundManager : MonoBehaviour
 
     private void Start()
     {
-        m_clouds[0] = m_cloud.transform;
-        m_clouds[1] = DuplicationSprite(m_cloud, ref m_cloudRetunePosiX).transform;
+        m_repeatedlyImages[0] = m_cloud.transform;
+        m_repeatedlyImages[1] = DuplicationSprite(m_cloud, ref m_cloudRetunePosiX).transform;
 
         m_middleStartPosi = m_middle.transform.position;
         m_frontStartPosi = m_front.transform.position;
@@ -59,42 +58,24 @@ public class BackGroundManager : MonoBehaviour
 
         m_playerRig = LevelManager.Instance.PlayerCon.GetComponent<Rigidbody2D>();
 
-        m_playerLastPosi = m_playerTrans.position;
-
         m_clearOffset = m_middle.GetComponent<SpriteRenderer>().size.x * m_middle.transform.localScale.x / 2 - m_clearOffset;
         
         BackgroundMove();
-        CloudMove();
+        RepeatedlyMove();
     }
 
-    //private void Update()
-    //{
-    //    CloudMove();
-    //    BackgroundMove();
-    //}
-
-    /// <summary> 三つ目の画像を一定のスピードで動かし続けます </summary>
-    public void CloudMove()
+    /// <summary> 画像を一定のスピードで動かし続けます </summary>
+    public void RepeatedlyMove()
     {
-        float addSpeed = m_playerTrans.position.x - m_playerLastPosi.x;
-        addSpeed = addSpeed * m_playerSpeedAdd;
-        foreach (var cloud in m_clouds)
+        foreach (var cloud in m_repeatedlyImages)
         {
-            if (addSpeed >= 0)
-            {
-                cloud.Translate(m_cloudSpeed * Time.deltaTime - addSpeed, 0, 0);
-            }
-            else
-            {
-                cloud.Translate(m_cloudSpeed * Time.deltaTime, 0, 0);
-            }
+            cloud.Translate(m_cloudSpeed * Time.deltaTime, 0, 0);
+            
             if (cloud.localPosition.x < -m_cloudRetunePosiX)
             {
                 cloud.localPosition = new Vector3(m_cloudRetunePosiX - 0.1f, 0, cloud.position.z);
             }
         }
-
-        m_playerLastPosi = m_playerTrans.position;
     }
 
     /// <summary> 三枚目以外を動かします </summary>

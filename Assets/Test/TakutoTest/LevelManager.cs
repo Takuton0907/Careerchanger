@@ -144,7 +144,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
             default:
                 break;
         }
-        m_backGroundManager?.CloudMove();
+        m_backGroundManager?.RepeatedlyMove();
     }
 
     /// <summary> ステージのインスタンス </summary>
