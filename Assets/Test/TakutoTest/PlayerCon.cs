@@ -63,52 +63,34 @@ public class PlayerCon : PlayerBase
     {
         ChangeState(PlayerState.Walk);
     }
+
+    float flightTime;
+    [SerializeField] float maxJump = 2;
+    public Vector3 cameraAdjust;
+
+    Vector3 underPosi;
+    const float piece = 1;//プログラム上での1マスの大きさ
+    bool toJump = true;
+    float time = 1;
+    enum JumpState
+    {
+        jump,
+        move,
+        dismount,
+        onGround,
+    };
+
+    JumpState jumpSwitch = JumpState.dismount;
     protected override void Move()
     {
-        switch (m_state)
+        //移動
+        transform.Translate(new Vector2(piece, 0) * Time.deltaTime * m_speed);
+        if (time <= 0)
         {
-            case PlayerState.Idle1:
-                break;
-            case PlayerState.Idle2:
-                if (m_rig.velocity.magnitude > 0.5f)
-                {
-                    Debug.Log("加速中");
-                    m_rig.velocity += Vector2.left * m_speed * Time.deltaTime;
-                }
-                else m_rig.velocity = Vector2.zero;
-                break;
-            case PlayerState.Walk:
-
-                if (m_maxWalkSpeed >= m_rig.velocity.magnitude)
-                {
-                    m_rig.velocity += Vector2.right * m_speed * Time.deltaTime;
-                }
-
-                if (m_elapsedTime >= m_timeToChangeFromWalkToRun)
-                {
-                    ChangeState(PlayerState.Run);
-                }
-                m_elapsedTime += Time.deltaTime;
-                break;
-            case PlayerState.Run:
-
-                if (m_maxRunSpeed >= m_rig.velocity.magnitude)
-                {
-                    m_rig.velocity += Vector2.right * m_speed * Time.deltaTime;
-                }
-                break;
-            case PlayerState.Damaged:
-                if (m_elapsedTime >= m_invincibleTime)
-                {
-                    ChangeState(PlayerState.Walk);
-                }
-                m_elapsedTime += Time.deltaTime;
-                break;
-            case PlayerState.Joy:
-                break;
-            case PlayerState.Dead:
-                break;
+            Debug.Log(transform.position);
+            time = 1;
         }
+        time -= Time.deltaTime;
     }
 
     //プレイヤーのState切り替え
@@ -183,6 +165,14 @@ public class PlayerCon : PlayerBase
         if (collision.gameObject.TryGetComponent(out IPlayerHit item))
         {
             item.Action();
+        }
+
+        if (collision.tag == "Ground")
+        {
+            //Debug.Log("当たった");
+            jumpSwitch = JumpState.onGround;
+            //underPosi = transform.position;
+            toJump = false;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
