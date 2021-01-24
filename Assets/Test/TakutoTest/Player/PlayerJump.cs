@@ -11,8 +11,7 @@ public class PlayerJump : PlayerActionBase
     public Vector3 cameraAdjust;
 
     Vector3 underPosi;
-    const float piece = 1;//プログラム上での1マスの大きさ
-    bool toJump = true;
+    private bool toJump = true;
 
     enum JumpState
     {
@@ -29,8 +28,10 @@ public class PlayerJump : PlayerActionBase
         flightTime = flightIntervalTime;
     }
 
-    public override IEnumerator PlayerAction()
+    public override IEnumerator PlayerAction(float piece)
     {
+        jumpSwitch = JumpState.jump;
+
         yield return null;
         while (true)
         {
@@ -38,7 +39,6 @@ public class PlayerJump : PlayerActionBase
             switch (jumpSwitch)
             {
                 case JumpState.jump:
-                    Debug.Log(underPosi);
                     transform.Translate(new Vector2(0, piece * 2) * Time.deltaTime * jumpSpeed);
                     if (transform.position.y >= underPosi.y + maxJump)
                     {
@@ -58,17 +58,22 @@ public class PlayerJump : PlayerActionBase
                     if (!toJump)
                     {
                         jumpSwitch = JumpState.onGround;
-                    }
-                    break;
-                case JumpState.onGround:
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        toJump = true;
-                        underPosi = transform.position;
-                        jumpSwitch = JumpState.jump;
+                        break;
                     }
                     break;
             }
+            yield return null;
+        }
+
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Ground")
+        {
+            jumpSwitch = JumpState.onGround;
+            toJump = false;
         }
     }
 }
