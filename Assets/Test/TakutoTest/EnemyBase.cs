@@ -36,7 +36,7 @@ public abstract class EnemyBase : MovingObject
 
     private bool m_hit = false;
 
-    EnemyManager m_enemyManager;
+    MoveObjectManager m_enemyManager;
 
     Coroutine m_animetionCoroutine;
 
@@ -57,7 +57,7 @@ public abstract class EnemyBase : MovingObject
     {
         StateChange(MoveState.Init);
         ActionStateChange(EnemyAction.Run);
-        m_enemyManager = LevelManager.Instance.EnemyManager;
+        m_enemyManager = LevelManager.Instance.MoveObjectManager;
         if (m_enemyManager != null) m_enemyManager.AddEnemy(this);
         else Debug.LogWarning($"EnemyManagerがありません");
 

@@ -93,7 +93,7 @@ public class ScoreManager : MonoBehaviour
         int enemyKillScore = DefeatedEnemies * m_enemyDefeatPoint;
         Score += enemyKillScore; //敵撃破によるスコアの計算
         AllEnemyDefeatedScore = enemyKillScore;
-        if (DefeatedEnemies >= LevelManager.Instance.EnemyManager.TotalEnemyCount)
+        if (DefeatedEnemies >= LevelManager.Instance.MoveObjectManager.TotalEnemyCount)
         {
             Score += scoreData.AllEnmeyDefeatBonus;
         }

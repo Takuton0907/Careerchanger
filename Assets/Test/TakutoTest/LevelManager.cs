@@ -19,11 +19,11 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
     LevelState levelState = LevelState.Init;
 
     //以下他のManagerクラスの参照
-    private EnemyManager m_enemyManager;
-    public EnemyManager EnemyManager
+    private MoveObjectManager m_moveObjectManager;
+    public MoveObjectManager MoveObjectManager
     {
-        get { return m_enemyManager; }
-        set { if (m_enemyManager == null) m_enemyManager = value; }
+        get { return m_moveObjectManager; }
+        set { if (m_moveObjectManager == null) m_moveObjectManager = value; }
     }
 
     private LifeManager m_lifeManager;
@@ -105,9 +105,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
                 if (!FadeManager.Instance.isFading)
                 {
                     StateChange(LevelState.Start);
-                    m_enemyManager.EnemySetup();
-
-                    //m_playerCon?.Init();
+                    m_moveObjectManager.MoveObjectsInit();
                 }
                 break;
             case LevelState.Start:
@@ -119,8 +117,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
                 break;
             case LevelState.Play:
                 //m_tutorialManager?.ManagedUpdate();
-                m_enemyManager?.ManagedUpdate();
-                //m_playerCon?.ManagedUpdate();
+                m_moveObjectManager?.ManagedUpdate();
                 m_effectManager?.ManagedUpdate();
                 m_scoreManager?.TimeCount(Time.unscaledDeltaTime);
                 m_backGroundManager?.BackgroundMove();
@@ -198,27 +195,22 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
             case LevelState.Init:
                 break;
             case LevelState.Start:
-                m_enemyManager?.AllEnemyStop();
-                m_enemyManager.AllEnemyAnimationOnlyStart();
+                m_moveObjectManager?.AllStop();
+                m_moveObjectManager?.AllEnemyAnimationOnlyStart();
                 break;
             case LevelState.Play:
-                m_enemyManager?.AllEnemyMove();
-                //m_playerCon?.MoveStart();
+                m_moveObjectManager?.AllMove();
                 break;
             case LevelState.Tutorial:
-                m_enemyManager?.AllEnemyStop();
-                //m_playerCon?.MoveStop();
+                m_moveObjectManager?.AllStop();
                 break;
             case LevelState.Stop:
-                m_enemyManager?.AllEnemyStop();
-                //m_playerCon?.MoveStop();
+                m_moveObjectManager?.AllStop();
                 break;
             case LevelState.GameOver:
                 m_gameOverManager?.GameOver();
-                //m_playerCon.GameOver();
                 break;
             case LevelState.Clear:
-                //m_playerCon.Clear();
                 break;
             case LevelState.Result:
                 ScoreManager.Resalt();

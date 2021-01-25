@@ -149,4 +149,3 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
         this.isFading = false;
     }
 }
-
