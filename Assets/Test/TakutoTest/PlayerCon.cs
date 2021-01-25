@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCon : PlayerBase
+[RequireComponent(typeof(PlayerJump))]
+public class PlayerCon : MovingObject
 {
     /// <summary>プレイヤーのステート</summary>
     public enum PlayerState
@@ -21,23 +22,19 @@ public class PlayerCon : PlayerBase
         Dead
     }
 
-    [Header("SEの名前"), SerializeField]
-    string m_damageSe = "damage";
-    
-    [Header("１マスの大きさ"), SerializeField] 
-    private float m_piece = 1;//プログラム上での1マスの大きさ
+    [Header("SEの名前"), SerializeField] string m_damageSe = "damage";
+    [Header("１マスの大きさ"), SerializeField] private float m_piece = 1;
+    [Header("プレイヤーが早くなっていくスピード"), SerializeField] float m_speed = 3.0f;
     
     /// <summary>現在のステート</summary>
     PlayerState m_state;
 
+    PlayerJump m_playerJump = null;
+
     protected override void Awake()
     {
         base.Awake();
-        LevelManager.Instance.PlayerCon = this;
-    }
-    void Start()
-    {
-
+        m_playerJump = GetComponent<PlayerJump>();
     }
     public void Init()
     {
@@ -50,7 +47,12 @@ public class PlayerCon : PlayerBase
 
     protected override void Move()
     {
-
+        //移動
+        transform.Translate(new Vector2(m_piece, 0) * Time.deltaTime * m_speed);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
     }
 
     //プレイヤーのState切り替え
@@ -80,7 +82,6 @@ public class PlayerCon : PlayerBase
         switch (m_state)
         {
             case PlayerState.Idle1:
-                m_rig.velocity = Vector2.zero;
                 break;
             case PlayerState.Idle2:
                 break;
@@ -89,10 +90,8 @@ public class PlayerCon : PlayerBase
             case PlayerState.Run:
                 break;
             case PlayerState.Damaged:
-                m_rig.velocity = Vector2.zero;
                 break;
             case PlayerState.Dead:
-                m_rig.velocity = Vector2.zero;
                 break;
             default:
                 break;
@@ -106,6 +105,11 @@ public class PlayerCon : PlayerBase
     public void GameOver()
     {
 
+    }
+
+    public void Jump()
+    {
+        m_playerJump.RunAction(m_piece);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

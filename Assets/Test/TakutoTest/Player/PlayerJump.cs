@@ -28,9 +28,10 @@ public class PlayerJump : PlayerActionBase
         flightTime = flightIntervalTime;
     }
 
-    public override IEnumerator PlayerAction(float piece)
+    protected override IEnumerator PlayerAction(float piece)
     {
         jumpSwitch = JumpState.jump;
+        toJump = true;
 
         yield return null;
         while (true)

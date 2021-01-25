@@ -5,12 +5,13 @@ public class MoveObjectManager : MonoBehaviour, IGameoverEvent, IClearEvent
 {
     List<EnemyBase> m_enemies = new List<EnemyBase>();
 
-    PlayerCon m_playerCon = null;
+    public PlayerCon PlayerCon { private set; get; }  = null;
 
     public int TotalEnemyCount { get; private set; } = 0;
 
     private void Awake()
-    {            
+    {
+        PlayerCon = FindObjectOfType<PlayerCon>();
         LevelManager.Instance.MoveObjectManager = this;   
     }
 
@@ -35,7 +36,7 @@ public class MoveObjectManager : MonoBehaviour, IGameoverEvent, IClearEvent
         {
             item.ManagedUpdate();
         }
-        m_playerCon.ManagedUpdate();
+        PlayerCon?.ManagedUpdate();
     }
     /// <summary> 描画が重ならないようにずらす </summary>
     public void MoveObjectsInit()
@@ -44,7 +45,7 @@ public class MoveObjectManager : MonoBehaviour, IGameoverEvent, IClearEvent
         {
             m_enemies[i].transform.position = new Vector3(m_enemies[i].transform.position.x, m_enemies[i].transform.position.y, i / 100f);
         }
-        m_playerCon.Init();
+        PlayerCon?.Init();
     }
     /// <summary> GameOver時の動作 </summary>
     public void GameOver()
@@ -63,7 +64,7 @@ public class MoveObjectManager : MonoBehaviour, IGameoverEvent, IClearEvent
         {
             item.StateChange(MoveState.Stop);
         }
-        m_playerCon.MoveStop();
+        PlayerCon?.MoveStop();
     }
     /// <summary> 止まっているオブジェクトをすべて動かします </summary>
     public void AllMove()
@@ -72,7 +73,7 @@ public class MoveObjectManager : MonoBehaviour, IGameoverEvent, IClearEvent
         {
             if (item.gameObject.activeSelf) item.StateChange(MoveState.Action);
         }
-        m_playerCon.MoveStart();
+        PlayerCon?.MoveStart();
     }
     /// <summary> アニメ―ジョンのみ先に動かす </summary>
     public void AllEnemyAnimationOnlyStart()

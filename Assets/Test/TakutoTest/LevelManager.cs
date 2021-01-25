@@ -40,11 +40,9 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
         set { if (m_intervalCon == null) m_intervalCon = value; }
     }
 
-    private PlayerCon m_playerCon;
     public PlayerCon PlayerCon
     {
-        get { return m_playerCon; }
-        set { if (m_playerCon == null) m_playerCon = value; }
+        get { if (m_moveObjectManager != null) { return m_moveObjectManager.PlayerCon; } else return null; }
     }
 
     private GameClearManager m_gameClearManager;
@@ -82,13 +80,10 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
         set { if (m_backGroundManager == null) m_backGroundManager = value; }
     }
 
-    //private TutorialManager m_tutorialManager;
-
     private new void Awake()
     {
         base.Awake();
         StageInstance();
-        //m_tutorialManager = FindObjectOfType<TutorialManager>();
     }
 
     private void Start()
@@ -116,7 +111,6 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
                 }
                 break;
             case LevelState.Play:
-                //m_tutorialManager?.ManagedUpdate();
                 m_moveObjectManager?.ManagedUpdate();
                 m_effectManager?.ManagedUpdate();
                 m_scoreManager?.TimeCount(Time.unscaledDeltaTime);
@@ -165,10 +159,9 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
         {
             case LevelState.Init:
                 m_scoreManager?.Setup();
-                //m_tutorialManager?.TutorialEventSet();
                 break;
             case LevelState.Start:
-                //m_playerCon?.Play();
+                this.PlayerCon.Play();
                 break;
             case LevelState.Play:
                 break;
