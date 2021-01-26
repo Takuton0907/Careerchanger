@@ -42,6 +42,6 @@ public class SelectSceneManager : SingletonMonoBehaviour<SelectSceneManager>
     IEnumerator LevelLoad()
     {
         yield return null;
-        FadeManager.Instance.LoadScene("Game", 2);
+        FadeManager.Instance.LoadScene("WeaponSelect", 2);
     }
 }
