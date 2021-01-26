@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class DragObj : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public Weapons weapon = 0;
+    public AttackMode weapon = 0;
     public Transform parentTransform;
     GameObject copyObj;
     DragObj CopyDragObj;
@@ -35,7 +35,7 @@ public class DragObj : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     }
     public void OnEndDrag(PointerEventData data)
     {
-        if (weapon == parentTransform.GetComponent<DropArea>().weapon || parentTransform.GetComponent<DropArea>().weapon == Weapons.Init)
+        if (weapon == parentTransform.GetComponent<DropArea>().weapon || parentTransform.GetComponent<DropArea>().weapon == AttackMode.None)
         {
             Debug.Log("OnEndDrag");
             if (parentTransform.childCount >= 1)
