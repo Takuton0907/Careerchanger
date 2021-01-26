@@ -6,7 +6,7 @@ public class PlayerJump : PlayerActionBase
 {
     float flightTime;
     [SerializeField] float maxJump = 2;
-    [SerializeField] float jumpSpeed = 2;//ジャンプ中のスピード
+    [SerializeField] float jumpSpeed = 2;//上がっていくスピード
     [SerializeField] float flightIntervalTime = 1;
     public Vector3 cameraAdjust;
 

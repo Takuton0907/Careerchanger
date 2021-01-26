@@ -34,7 +34,7 @@ public class WeaponSceneButton : MonoBehaviour
         WeaponText.text = string.Empty;
         string imagePath = string.Empty; 
         dragObj = obj.GetComponent<DragObj>();
-        weaponSpriteChange(dragObj.weapon);
+        WeaponSpriteChange(dragObj.weapon);
         switch (dragObj.weapon)
         {
             case Weapons.Sword:
@@ -107,7 +107,7 @@ public class WeaponSceneButton : MonoBehaviour
         }
     }
 
-    private void weaponSpriteChange(Weapons weapon)
+    private void WeaponSpriteChange(Weapons weapon)
     {
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -128,6 +128,11 @@ public class WeaponSceneButton : MonoBehaviour
         foreach (var item in Select)
         {
             playJudge = item.HasChild();
+        }
+
+        if (playJudge)
+        {
+            FadeManager.Instance.LoadScene("Game", 2);
         }
     }
 }
