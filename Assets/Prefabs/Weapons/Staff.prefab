@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4847247610747621193}
   - component: {fileID: 4847247610747621302}
+  - component: {fileID: -1797261422099830253}
   m_Layer: 0
   m_Name: Staff
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,6 +59,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &-1797261422099830253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4847247610747621192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2b1a89c6a6c3b488cacb135c9d29f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_attackPower: 1
+  m_parentObj: {fileID: 0}
 --- !u!1 &4847247611409133094
 GameObject:
   m_ObjectHideFlags: 0
