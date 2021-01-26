@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackCon : MonoBehaviour
+public class AttackManager : MonoBehaviour
 {
     Dictionary<AttackMode, int> weaponDic = new Dictionary<AttackMode, int>() { //ディクショナリに各Enumに適応した数値を入れておく（武器オブジェクトの参照用）
         {AttackMode.Sword, 0 },
@@ -13,6 +13,7 @@ public class AttackCon : MonoBehaviour
         {AttackMode.Bow, 5 },
     };
 
+    [SerializeField] Transform m_parentObje; //武器のオブジェクトのインスタンスのおやオブジェクト
     [SerializeField] GameObject[] m_weapons; //各武器オブジェクト（見た目のみ）
     [SerializeField] GameObject m_arrow; //矢用のオブジェクト
     [SerializeField] GameObject m_angleArrow; //2本目の矢
@@ -22,10 +23,24 @@ public class AttackCon : MonoBehaviour
 
     void Start()
     {
+        Transform playerTrans = LevelManager.Instance.PlayerCon.transform;
+
         m_weaponCollider = new BoxCollider2D[m_weapons.Length];
+
+        if (playerTrans != null)// プレイヤーの子オブジェクトにしたときにサイズが変わらないようにする
+        {
+            m_parentObje.localScale = new Vector3(m_parentObje.localScale.x / playerTrans.localScale.x, m_parentObje.localScale.y / playerTrans.localScale.y);
+        }
         for (int i = 0; i < m_weapons.Length; i++)
         {
-            m_weapons[i] = Instantiate(m_weapons[i], transform);
+            if (playerTrans != null)
+            {
+                m_weapons[i] = Instantiate(m_weapons[i], m_parentObje);
+            }
+            else
+            {
+                m_weapons[i] = Instantiate(m_weapons[i], transform);
+            }
             m_weaponCollider[i] = m_weapons[i].GetComponent<BoxCollider2D>();
         }
     }

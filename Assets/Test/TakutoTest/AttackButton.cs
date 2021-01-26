@@ -7,7 +7,7 @@ public class AttackButton : MonoBehaviour
     [SerializeField] int m_selfAttackButtonNumaber = 0;
 
     AttackMode m_myAttackMode = AttackMode.Sword;
-    AttackCon m_attackCon;
+    AttackManager m_attackCon;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class AttackButton : MonoBehaviour
         {
             m_myAttackMode = attack;
         }
-        m_attackCon = FindObjectOfType<AttackCon>();
+        m_attackCon = FindObjectOfType<AttackManager>();
     }
 
     public void OnClickAttack()

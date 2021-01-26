@@ -15,7 +15,7 @@ public abstract class EnemyBase : MovingObject
     
     [Header("Status")]
     /// <summary> HPの最大値 </summary>
-    [SerializeField] protected int m_maxLife = 10;
+    [SerializeField] protected int m_maxLife = 1;
     /// <summary> 現在のlife </summary>
     private int m_currentLife;
 
@@ -27,14 +27,10 @@ public abstract class EnemyBase : MovingObject
     /// <summary> ダメージを受けた時に流すサウンド </summary>
     [SerializeField] private string m_dmageClipName = "ClipName";
     [Header("ダメージ関連")]
-    /// <summary> ダメージを受ける範囲 </summary>
-    [SerializeField] private float m_hitArea = 2;
     /// <summary> ダメージを受けてから歩くまでの時間 </summary>
     [SerializeField] private float m_damageTime = 1.5f;
     /// <summary> 死ぬまでの時間 </summary>
     [SerializeField] private float m_deathTime = 1.5f;
-
-    private bool m_hit = false;
 
     MoveObjectManager m_enemyManager;
 
@@ -75,6 +71,10 @@ public abstract class EnemyBase : MovingObject
     {
         StateChange(MoveState.Stop);
     }
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
 
     //ダメージ
     public virtual void Damage(int value)
@@ -103,9 +103,14 @@ public abstract class EnemyBase : MovingObject
 
         AudioManager.Instance.PlaySE(m_desClipName);
 
-        yield return new WaitForSeconds(m_deathTime);
-
         LevelManager.Instance.EffectManager?.InstanceDeathEffect(transform.position, Vector3.one);
+
+        while (true)
+        {
+            //敵が死んだときのアニメーションの処理などを書く
+            yield return null;
+            break;
+        }
 
         m_enemyManager.RemoveEnemy(this);
         gameObject.SetActive(false);
@@ -165,32 +170,6 @@ public abstract class EnemyBase : MovingObject
                 break;
         }
     }
-
-    //interfaceによる実装
-    public virtual void LineHitAction(Vector3 touchPosi)
-    {
-        if (m_hit) return;
-        if (m_currentLife <= 0) return;
-        if (m_actionState == EnemyAction.Death) return;
-        if (((Vector2)touchPosi - (Vector2)transform.position).magnitude > m_hitArea) return;
-
-        m_hit = true;
-    }  
-    public void LineHitSetup()
-    {
-        m_hit = false;
-    }
-    public void LineHitEnd()
-    {
-    }
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        //Gizmos.DrawSphere(transform.position, m_hitArea);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, m_hitArea);
-    }
-#endif
 }
 
 //Enemyの行動

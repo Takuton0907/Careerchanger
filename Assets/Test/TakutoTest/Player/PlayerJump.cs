@@ -40,8 +40,8 @@ public class PlayerJump : PlayerActionBase
             switch (jumpSwitch)
             {
                 case JumpState.jump:
-                    transform.Translate(new Vector2(0, piece * 2) * Time.deltaTime * jumpSpeed);
-                    if (transform.position.y >= underPosi.y + maxJump)
+                    transform.Translate(Vector2.up * Time.deltaTime * jumpSpeed);
+                    if (transform.position.y >= underPosi.y + maxJump * piece)
                     {
                         jumpSwitch = JumpState.move;
                     }
@@ -55,7 +55,7 @@ public class PlayerJump : PlayerActionBase
                     }
                     break;
                 case JumpState.dismount:
-                    transform.Translate(new Vector2(0, -piece * 2) * Time.deltaTime * jumpSpeed);
+                    transform.Translate(Vector2.down * Time.deltaTime * jumpSpeed);
                     if (!toJump)
                     {
                         jumpSwitch = JumpState.onGround;
@@ -65,8 +65,6 @@ public class PlayerJump : PlayerActionBase
             }
             yield return null;
         }
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

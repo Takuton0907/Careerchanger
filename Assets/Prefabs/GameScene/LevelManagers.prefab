@@ -227,6 +227,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_flowerGetFadeTime: 5
   m_coloerInterval: 2
+--- !u!1 &2097193857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2097193858}
+  - component: {fileID: 2097193859}
+  m_Layer: 0
+  m_Name: AttackManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2097193858
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097193857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3904998424452916345}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2097193859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097193857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8267347f81a6a4cb1687aae05bec98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_parentObje: {fileID: 0}
+  m_weapons:
+  - {fileID: 1179069055017348460, guid: a7a3fc52e9314d741a78245efd560089, type: 3}
+  - {fileID: 4376197173212815761, guid: 2aabc674c41e6a14e8169be2a9792b2a, type: 3}
+  - {fileID: 276433785067787158, guid: 8e047fa557dbe924b87a7455664fba90, type: 3}
+  - {fileID: 4847247610747621192, guid: 9aa617555abcfda448ecc91372056f23, type: 3}
+  - {fileID: 938639297942634786, guid: c9a9cedf30d5d284ba03f43a7098ffbc, type: 3}
+  - {fileID: 7216971421973859570, guid: 77f0ad60450163248acd6b0aea494a78, type: 3}
+  m_arrow: {fileID: 3322008808077864509, guid: aed85dc30cbb7634a8c0e4cfc7c5b061, type: 3}
+  m_angleArrow: {fileID: 693419600514857525, guid: 40cd2591a3e70d3479adfad0a03ed687,
+    type: 3}
+  m_arrowAngle: 20
 --- !u!1 &3904998424288171400
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +359,7 @@ Transform:
   - {fileID: 2031105834}
   - {fileID: 286805668}
   - {fileID: 1459135286}
+  - {fileID: 2097193858}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -365,4 +421,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_countText: {fileID: 0}
   m_startInterval: 3
-  time: 5
+  m_startFadeTime: 5
