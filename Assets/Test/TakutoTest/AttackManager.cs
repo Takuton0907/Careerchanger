@@ -31,11 +31,16 @@ public class AttackManager : MonoBehaviour
         {
             m_parentObje.localScale = new Vector3(m_parentObje.localScale.x / playerTrans.localScale.x, m_parentObje.localScale.y / playerTrans.localScale.y);
         }
+
         for (int i = 0; i < m_weapons.Length; i++)
         {
             if (playerTrans != null)
             {
                 m_weapons[i] = Instantiate(m_weapons[i], m_parentObje);
+                if (m_weapons[i].TryGetComponent(out TrrigerHitAttack trrigerHitAttack))
+                {
+                    trrigerHitAttack.SetParentObj(LevelManager.Instance.PlayerCon.transform);
+                }
             }
             else
             {
