@@ -92,9 +92,10 @@ GameObject:
   - component: {fileID: 693419600514857522}
   - component: {fileID: 693419600514857523}
   - component: {fileID: 693419600514857524}
+  - component: {fileID: -448366401596088700}
   m_Layer: 0
   m_Name: AngleArrow
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,3 +177,17 @@ MonoBehaviour:
   m_arrowXSpeed: 60
   m_arrowYSpeed: 25
   m_angleArrow: 1
+--- !u!114 &-448366401596088700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693419600514857525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2b1a89c6a6c3b488cacb135c9d29f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_attackPower: 1
+  m_parentObj: {fileID: 0}
