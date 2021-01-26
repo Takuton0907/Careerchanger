@@ -37,61 +37,61 @@ public class WeaponSceneButton : MonoBehaviour
         WeaponSpriteChange(dragObj.weapon);
         switch (dragObj.weapon)
         {
-            case Weapons.Sword:
+            case AttackMode.Sword:
                 imagePath = "Sprite/sword";
                 for (int i = 0; i < textDates.GetLength(0); i++)
                 {
-                    if (int.Parse(textDates[i, 0]) == (int)Weapons.Sword)
+                    if (int.Parse(textDates[i, 0]) == (int)AttackMode.Sword)
                     {
                         WeaponText.text += textDates[i, 1] + "\n";
                     }
                 }
                 break;
-            case Weapons.Lance:
+            case AttackMode.Spear:
                 imagePath = "Sprite/lance";
                 for (int i = 0; i < textDates.GetLength(0); i++)
                 {
-                    if (int.Parse(textDates[i, 0]) == (int)Weapons.Lance)
+                    if (int.Parse(textDates[i, 0]) == (int)AttackMode.Spear)
                     {
                         WeaponText.text += textDates[i, 1] + "\n";
                     }
                 }
                 break;
-            case Weapons.axe:
+            case AttackMode.Axe:
                 imagePath = "Sprite/ax";
                 for (int i = 0; i < textDates.GetLength(0); i++)
                 {
-                    if (int.Parse(textDates[i, 0]) == (int)Weapons.axe)
+                    if (int.Parse(textDates[i, 0]) == (int)AttackMode.Axe)
                     {
                         WeaponText.text += textDates[i, 1] + "\n";
                     }
                 }
                 break;
-            case Weapons.cane:
+            case AttackMode.Staff:
                 imagePath = "Sprite/cane";
                 for (int i = 0; i < textDates.GetLength(0); i++)
                 {
-                    if (int.Parse(textDates[i, 0]) == (int)Weapons.cane)
+                    if (int.Parse(textDates[i, 0]) == (int)AttackMode.Staff)
                     {
                         WeaponText.text += textDates[i, 1] + "\n";
                     }
                 }
                 break;
-            case Weapons.bow:
+            case AttackMode.Bow:
                 imagePath = "Sprite/bow";
                 for (int i = 0; i < textDates.GetLength(0); i++)
                 {
-                    if (int.Parse(textDates[i, 0]) == (int)Weapons.bow)
+                    if (int.Parse(textDates[i, 0]) == (int)AttackMode.Bow)
                     {
                         WeaponText.text += textDates[i, 1] + "\n";
                     }
                 }
                 break;
-            case Weapons.tachi:
+            case AttackMode.Katana:
                 imagePath = "Sprite/tachi";
                 for (int i = 0; i < textDates.GetLength(0); i++)
                 {
-                    if (int.Parse(textDates[i, 0]) == (int)Weapons.tachi)
+                    if (int.Parse(textDates[i, 0]) == (int)AttackMode.Katana)
                     {
                         WeaponText.text += textDates[i, 1] + "\n";
                     }
@@ -107,17 +107,17 @@ public class WeaponSceneButton : MonoBehaviour
         }
     }
 
-    private void WeaponSpriteChange(Weapons weapon)
+    private void WeaponSpriteChange(AttackMode weapon)
     {
         for (int i = 0; i < buttons.Length; i++)
         {
             if ((int)weapon != i)
             {
-                buttons[i].GetComponentInChildren<Button>().image.sprite = Resources.Load<Sprite>("Sprite/" + (Weapons.Sword + i).ToString() + "Sprite");
+                buttons[i].GetComponentInChildren<Button>().image.sprite = Resources.Load<Sprite>("Sprite/" + (AttackMode.Sword + i).ToString() + "Sprite");
             }
             else
             {
-                buttons[i].GetComponentInChildren<Button>().image.sprite = Resources.Load<Sprite>("Sprite/" + (Weapons.Sword + i).ToString() + "_Push");
+                buttons[i].GetComponentInChildren<Button>().image.sprite = Resources.Load<Sprite>("Sprite/" + (AttackMode.Sword + i).ToString() + "_Push");
             }
         }
     }

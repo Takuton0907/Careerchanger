@@ -12,15 +12,15 @@ public enum Stage
     Stage3_EX,
 }
 
-public enum Weapons
+public enum AttackMode
 {
+    None,
     Sword,
-    Lance,
-    axe,
-    cane,
-    bow,
-    tachi,
-    Init,
+    Axe,
+    Spear,
+    Staff,
+    Katana,
+    Bow,
 }
 
 public class Flags
@@ -30,7 +30,7 @@ public class Flags
     public uint EnemyDes = 0;
     public uint Combo = 0;
     public uint MaxScoer = 0;
-    public Weapons[] LastWeapon = new Weapons[3];
+    public AttackMode[] LastWeapon = new AttackMode[3];
 }
 
 public class FlagManager
@@ -49,5 +49,11 @@ public class FlagManager
     public static Flags Get(Stage key)
     {
         return Flag[key];
+    }
+
+    public static Flags GetAttackButtons()
+    {
+        StageData stageData = DataManager.Instance.GetStage();
+        return Get(stageData.stageNum);
     }
 }
