@@ -1,0 +1,25 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "heroine.moc3",
+		"Textures": [
+			"heroine.512/texture_00.png",
+			"heroine.512/texture_01.png",
+			"heroine.512/texture_02.png"
+		],
+		"Physics": "heroine.physics3.json",
+		"DisplayInfo": "heroine.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}
