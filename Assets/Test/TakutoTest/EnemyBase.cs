@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public abstract class EnemyBase : MovingObject
+public abstract class EnemyBase : MovingObject, IDamageHandler
 {
     [SerializeField] bool m_debug = true;
 
@@ -70,10 +70,6 @@ public abstract class EnemyBase : MovingObject
     protected virtual void OnDisable()
     {
         StateChange(MoveState.Stop);
-    }
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
-    {
-        
     }
 
     //ダメージ
@@ -164,7 +160,7 @@ public abstract class EnemyBase : MovingObject
                 m_animator.SetTrigger("Attack");
                 break;
             case EnemyAction.Damage:
-                m_animator.SetTrigger("Damage");
+                //m_animator.SetTrigger("Damage");
                 break;
             case EnemyAction.Death:
                 break;

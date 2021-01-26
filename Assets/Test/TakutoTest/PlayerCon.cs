@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerJump))]
-public class PlayerCon : MovingObject
+public class PlayerCon : MovingObject, IDamageHandler
 {
     /// <summary>プレイヤーのステート</summary>
     public enum PlayerState
@@ -106,12 +106,10 @@ public class PlayerCon : MovingObject
     {
 
     }
-
     public void Jump()
     {
         m_playerJump.RunAction(m_piece);
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent(out IPlayerHit item))
@@ -125,5 +123,10 @@ public class PlayerCon : MovingObject
         {
             item.Action();
         }
+    }
+
+    public void Damage(int value)
+    {
+        LevelManager.Instance.LifeManager.LifeUpdate(value);
     }
 }
