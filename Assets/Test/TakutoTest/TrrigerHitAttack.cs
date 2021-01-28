@@ -19,8 +19,9 @@ public class TrrigerHitAttack : MonoBehaviour
         if (collision.TryGetComponent(out IDamageHandler damage))
         {
             if (collision.transform == m_parentObj) return;
-            damage.Damage(m_attackPower);
-            Debug.Log($"{transform.name} が {collision.transform.name} に {m_attackPower} 与えた");
+            damage.Damage(-m_attackPower);
+            Debug.Log($"{transform.name} が {collision.transform.name} に {m_attackPower} 与えた" +
+                $"\nPlayerの残りライフは {LevelManager.Instance.LifeManager.GetCurrentLife}");
         }
     }
 }
