@@ -643,6 +643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1973455595}
   - component: {fileID: 1973455596}
+  - component: {fileID: 1872882522622283970}
   m_Layer: 0
   m_Name: LifeUI
   m_TagString: Untagged
@@ -694,6 +695,18 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &1872882522622283970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973455594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac64b8b8673d804b8f566de8b0bd9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2066097272
 GameObject:
   m_ObjectHideFlags: 0

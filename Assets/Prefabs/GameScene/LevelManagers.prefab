@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b7dc3971a9815f4994f8c9ec30204a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lifeParentTransform: {fileID: 0}
   m_lifeUIPrefab: {fileID: 6680105867869095276, guid: 873767e548ef51c4982d064a720a9a5c,
     type: 3}
   m_maxLife: 3
