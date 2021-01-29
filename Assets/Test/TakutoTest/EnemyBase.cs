@@ -72,13 +72,13 @@ public abstract class EnemyBase : MovingObject, IDamageHandler
         StateChange(MoveState.Stop);
     }
 
-    //ダメージ
-    public virtual void Damage(int value)
+
+    public void Damage(int value)
     {
         if (m_actionState == EnemyAction.Death) return;
         if (m_animetionCoroutine != null) StopCoroutine(m_animetionCoroutine);
 
-        m_currentLife -= value;
+        m_currentLife += value;
         m_animator.SetInteger("Life", m_currentLife);
         if (m_actionState != EnemyAction.Attack) ActionStateChange(EnemyAction.Damage);
         if (m_currentLife <= 0) m_animetionCoroutine = StartCoroutine(DeathEnemy());
@@ -86,6 +86,20 @@ public abstract class EnemyBase : MovingObject, IDamageHandler
         AudioManager.Instance.PlaySE(m_dmageClipName);
         Debug.Log($"{gameObject.name} m_currentLife = {m_currentLife}");
     }
+    //ダメージ
+    //public virtual void Damage(int value)
+    //{
+    //    if (m_actionState == EnemyAction.Death) return;
+    //    if (m_animetionCoroutine != null) StopCoroutine(m_animetionCoroutine);
+
+    //    m_currentLife -= value;
+    //    m_animator.SetInteger("Life", m_currentLife);
+    //    if (m_actionState != EnemyAction.Attack) ActionStateChange(EnemyAction.Damage);
+    //    if (m_currentLife <= 0) m_animetionCoroutine = StartCoroutine(DeathEnemy());
+    //    else m_animetionCoroutine = StartCoroutine(Damaged());
+    //    AudioManager.Instance.PlaySE(m_dmageClipName);
+    //    Debug.Log($"{gameObject.name} m_currentLife = {m_currentLife}");
+    //}
     private IEnumerator Damaged()
     {
         yield return new WaitForSeconds(m_damageTime);
@@ -101,15 +115,17 @@ public abstract class EnemyBase : MovingObject, IDamageHandler
 
         LevelManager.Instance.EffectManager?.InstanceDeathEffect(transform.position, Vector3.one);
 
-        while (true)
-        {
-            //敵が死んだときのアニメーションの処理などを書く
-            yield return null;
-            break;
-        }
+        //while (true)
+        //{
+        //    //敵が死んだときのアニメーションの処理などを書く
+        //    yield return null;
+        //    break;
+        //}
 
         m_enemyManager.RemoveEnemy(this);
         gameObject.SetActive(false);
+
+        yield return null;
     }
     //行動開始時のアクション
     private void Setup()
