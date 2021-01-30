@@ -1085,7 +1085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47386654dc8be814b86c2e0a1de7cc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: 1
+  weapon: 3
   parentTransform: {fileID: 0}
 --- !u!225 &252602415
 CanvasGroup:
@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47386654dc8be814b86c2e0a1de7cc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: 4
+  weapon: 6
   parentTransform: {fileID: 0}
 --- !u!225 &273727955
 CanvasGroup:
@@ -2013,7 +2013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47386654dc8be814b86c2e0a1de7cc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: 3
+  weapon: 4
   parentTransform: {fileID: 0}
 --- !u!225 &913868761
 CanvasGroup:
@@ -3048,7 +3048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47386654dc8be814b86c2e0a1de7cc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: 0
+  weapon: 1
   parentTransform: {fileID: 0}
 --- !u!225 &2123091510
 CanvasGroup:
