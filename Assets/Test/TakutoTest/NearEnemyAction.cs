@@ -6,6 +6,6 @@ public class NearEnemyAction : EnemyBase
 {
     protected override void Move()
     {
-    
+        
     }
 }

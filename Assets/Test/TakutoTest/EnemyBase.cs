@@ -66,6 +66,11 @@ public abstract class EnemyBase : MovingObject, IDamageHandler
         {
             gameObject.SetActive(false);
         }
+
+        if (TryGetComponent(out TrrigerHitAttack hitAttack))
+        {
+            hitAttack.SetAttackFunc(Attack);
+        }
     }
     protected virtual void OnDisable()
     {
@@ -181,6 +186,11 @@ public abstract class EnemyBase : MovingObject, IDamageHandler
             case EnemyAction.Death:
                 break;
         }
+    }
+
+    protected virtual void Attack()
+    {
+        ActionStateChange(EnemyAction.Attack);
     }
 }
 
