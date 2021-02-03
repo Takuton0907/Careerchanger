@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConboManager : MonoBehaviour
+public class ComboManager : MonoBehaviour
 {
     [SerializeField] List<Combo> m_combos;
 }
 
 [Serializable]
-class Combo
+public class Combo
 {
-    public string name;
-    public AttackMode[] combos = new AttackMode[3];
+    public List<AttackMode> combos = new List<AttackMode>();
 }
