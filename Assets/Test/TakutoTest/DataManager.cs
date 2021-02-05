@@ -19,26 +19,16 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     ComboData[] m_comboDatas = null;
 
     /// <summary> 次のステージのスコアをセットします </summary>
-    public void ScoreRankSet(ScoreRank scoreRankData)
-    {
-        scoreRank = scoreRankData;
-    }
+    public void ScoreRankSet(ScoreRank scoreRankData) => scoreRank = scoreRankData;
+
     /// <summary> 次のステージのスコアを返します </summary>
-    public ScoreRank GetScoreRank()
-    {
-        return scoreRank;
-    }
+    public ScoreRank GetScoreRank() => scoreRank;
 
     /// <summary> 次のステージデータをセットします </summary>
-    public void StageSet(StageData stage)
-    {
-        m_nextStage = stage;
-    }
+    public void StageSet(StageData stage) => m_nextStage = stage;
+
     /// <summary> 次のステージデータを返します </summary>
-    public StageData GetStage()
-    {
-        return m_nextStage;
-    }
+    public StageData GetStage() => m_nextStage;
 
     /// <summary> コンボのデータを返します </summary>
     public ComboData GetComboData(AttackMode mode)
@@ -69,10 +59,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     }
 
     //次のレベルの準備・遷移
-    public void LevelSelect(Stage stage)
-    {
-        StageSet(stageDatas[(int)stage]);
-    }
+    public void LevelSelect(Stage stage) => StageSet(stageDatas[(int)stage]);
 
     public void StageClear()
     {
