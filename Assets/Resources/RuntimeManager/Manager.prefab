@@ -1656,9 +1656,9 @@ MonoBehaviour:
     stageBgmName: 
   scoreRank: {fileID: 0}
   m_comboDatas:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3ad23592c6137b947bd69c88e45d2a06, type: 2}
+  - {fileID: 11400000, guid: d9c34f83ea30eb9418f02f303f2833d0, type: 2}
+  - {fileID: 11400000, guid: f1c1e8497cce66d4e8154b56e24bcd62, type: 2}
+  - {fileID: 11400000, guid: c1b3bc76063694242b1dc014cd120e1d, type: 2}
+  - {fileID: 11400000, guid: f9ef8ae710bfb434b82b3afb4096f426, type: 2}
+  - {fileID: 11400000, guid: 3ad23592c6137b947bd69c88e45d2a06, type: 2}
