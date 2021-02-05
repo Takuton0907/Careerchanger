@@ -19,9 +19,41 @@ public class AttackManager : MonoBehaviour
     [SerializeField] GameObject m_angleArrow; //2本目の矢
     [SerializeField] float m_arrowAngle; //2本目の矢の角度
 
-    BoxCollider2D[] m_weaponCollider;
+    BoxCollider2D[] m_weaponCollider;//各武器のコライダーの参照配列
 
     void Start()
+    {
+        WeaponsInstance();
+    }
+
+    /// <summary> 攻撃 </summary>
+    public void Attack(AttackMode attackMode)
+    {
+        m_weapons[weaponDic[attackMode]].SetActive(true);
+        switch (attackMode)
+        {
+            case AttackMode.Sword:
+                StartCoroutine(AttackSword());
+                break;
+            case AttackMode.Axe:
+                StartCoroutine(AttackAxe());
+                break;
+            case AttackMode.Spear:
+                StartCoroutine(AttackSpear());
+                break;
+            case AttackMode.Staff:
+                StartCoroutine(AttackStaff());
+                break;
+            case AttackMode.Katana:
+                StartCoroutine(AttackKatana());
+                break;
+            case AttackMode.Bow:
+                AttackBow();
+                break;
+        }
+    }
+    /// <summary> 各武器の生成 </summary>
+    private void WeaponsInstance()
     {
         Transform playerTrans = LevelManager.Instance.PlayerCon.transform;
 
@@ -50,32 +82,8 @@ public class AttackManager : MonoBehaviour
         }
     }
 
-    public void Attack(AttackMode attackMode)
-    {
-        m_weapons[weaponDic[attackMode]].SetActive(true);
-        switch (attackMode)
-        {
-            case AttackMode.Sword:
-                StartCoroutine(AttackSword());
-                break;
-            case AttackMode.Axe:
-                StartCoroutine(AttackAxe());
-                break;
-            case AttackMode.Spear:
-                StartCoroutine(AttackSpear());
-                break;
-            case AttackMode.Staff:
-                StartCoroutine(AttackStaff());
-                break;
-            case AttackMode.Katana:
-                StartCoroutine(AttackKatana());
-                break;
-            case AttackMode.Bow:
-                AttackBow();
-                break;
-        }
-    }
-
+    //各武器の攻撃
+    //------------------------------------------------------------------------------
     IEnumerator AttackSword()
     {
         if (m_weaponCollider[weaponDic[AttackMode.Sword]])
@@ -85,7 +93,6 @@ public class AttackManager : MonoBehaviour
             m_weaponCollider[weaponDic[AttackMode.Sword]].enabled = false;
         }
     }
-
     IEnumerator AttackAxe()
     {
         if (m_weaponCollider[weaponDic[AttackMode.Axe]])
@@ -95,7 +102,6 @@ public class AttackManager : MonoBehaviour
             m_weaponCollider[weaponDic[AttackMode.Axe]].enabled = false;
         }
     }
-
     IEnumerator AttackSpear()
     {
         if (m_weaponCollider[weaponDic[AttackMode.Spear]])
@@ -105,7 +111,6 @@ public class AttackManager : MonoBehaviour
             m_weaponCollider[weaponDic[AttackMode.Spear]].enabled = false;
         }
     }
-
     IEnumerator AttackStaff()
     {
         if (m_weaponCollider[weaponDic[AttackMode.Axe]])
@@ -115,7 +120,6 @@ public class AttackManager : MonoBehaviour
             m_weaponCollider[weaponDic[AttackMode.Axe]].enabled = false;
         }
     }
-
     IEnumerator AttackKatana()
     {
         if (m_weaponCollider[weaponDic[AttackMode.Axe]])
@@ -125,16 +129,11 @@ public class AttackManager : MonoBehaviour
             m_weaponCollider[weaponDic[AttackMode.Axe]].enabled = false;
         }
     }
-
-    void AttackBow()
+    private void AttackBow()
     {
         var angle = new Vector3(0, 0, m_arrowAngle);
         Instantiate(m_arrow, m_weapons[weaponDic[AttackMode.Bow]].transform.position + new Vector3(1, 0, 0), Quaternion.identity);
         Instantiate(m_angleArrow, m_weapons[weaponDic[AttackMode.Bow]].transform.position + new Vector3(1, 0, 0), Quaternion.Euler(angle));
     }
-
-    void AttackChain()
-    {
-
-    }
+    //------------------------------------------------------------------------------
 }
