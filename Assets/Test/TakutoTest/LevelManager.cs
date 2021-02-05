@@ -18,7 +18,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
     //レベルの進行管理
     LevelState levelState = LevelState.Init;
 
-    //以下他のManagerクラスの参照
+    #region 他のManager参照まとめ
     private MoveObjectManager m_moveObjectManager;
     public MoveObjectManager MoveObjectManager
     {
@@ -80,6 +80,14 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
         set { if (m_backGroundManager == null) m_backGroundManager = value; }
     }
 
+    private ComboManager m_comboManager;
+    public ComboManager ComboManager
+    {
+        get { return m_comboManager; } 
+        set { if (m_comboManager == null) m_comboManager = value; }
+    }
+    #endregion
+
     private new void Awake()
     {
         base.Awake();
@@ -104,7 +112,11 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
                 }
                 break;
             case LevelState.Start:
-                if (m_intervalCon == null) StateChange(LevelState.Play);
+                if (m_intervalCon == null)
+                {
+                    StateChange(LevelState.Play);
+                    return;
+                }
                 if (m_intervalCon.CountDown())
                 {
                     StateChange(LevelState.Play);
@@ -115,7 +127,6 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
                 m_effectManager?.ManagedUpdate();
                 m_scoreManager?.TimeCount(Time.unscaledDeltaTime);
                 m_backGroundManager?.BackgroundMove();
-
                 if (ScoreManager.ElapsedTime <= 0)
                 {
                     GameOver();
