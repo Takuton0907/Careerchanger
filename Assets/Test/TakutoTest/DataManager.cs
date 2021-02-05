@@ -16,7 +16,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     private ScoreRank scoreRank = null;
     
     [SerializeField, Header("コンボデータの管理をしています")] 
-    ComboData m_comboData = null;
+    ComboData[] m_comboDatas = null;
 
     /// <summary> 次のステージのスコアをセットします </summary>
     public void ScoreRankSet(ScoreRank scoreRankData)
@@ -41,7 +41,17 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     }
 
     /// <summary> コンボのデータを返します </summary>
-    public ComboData GetComboData() => m_comboData;
+    public ComboData GetComboData(AttackMode mode)
+    {
+        foreach (var comboData in m_comboDatas)
+        {
+            if (comboData.GetAttackMode() == mode)
+            {
+                return comboData;
+            }
+        }
+        return null;
+    }
 
     /// <summary> Stageが現在遊べる状態なのかを返します </summary>
     public bool OpneStageCheck(Stage stage)
