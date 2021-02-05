@@ -6,36 +6,44 @@ using UnityEngine;
 public class DataManager : SingletonMonoBehaviour<DataManager>
 {
     //次のステージのオブジェクトを設定
-    [SerializeField]
+    [SerializeField, Header("ここにあるステージがインスタンスされます")]
     private StageData m_nextStage = null;
 
-    [Header("Size = 全部のステージ数")]
+    [Header("全ステージのデータを管理")]
     public StageData[] stageDatas = new StageData[1];
 
-    [SerializeField]
+    [SerializeField, Header("ステージごとのスコアを管理しています")]
     private ScoreRank scoreRank = null;
+    
+    [SerializeField, Header("コンボデータの管理をしています")] 
+    ComboData m_comboData = null;
 
-    public bool FirstPlay { get; private set; }
-
+    /// <summary> 次のステージのスコアをセットします </summary>
     public void ScoreRankSet(ScoreRank scoreRankData)
     {
         scoreRank = scoreRankData;
     }
-
+    /// <summary> 次のステージのスコアを返します </summary>
     public ScoreRank GetScoreRank()
     {
         return scoreRank;
     }
 
+    /// <summary> 次のステージデータをセットします </summary>
     public void StageSet(StageData stage)
     {
         m_nextStage = stage;
     }
+    /// <summary> 次のステージデータを返します </summary>
     public StageData GetStage()
     {
         return m_nextStage;
     }
 
+    /// <summary> コンボのデータを返します </summary>
+    public ComboData GetComboData() => m_comboData;
+
+    /// <summary> Stageが現在遊べる状態なのかを返します </summary>
     public bool OpneStageCheck(Stage stage)
     {
         for (int i = 0; i < (int)stage; i++)
