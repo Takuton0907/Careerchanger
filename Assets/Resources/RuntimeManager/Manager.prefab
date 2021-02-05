@@ -1655,3 +1655,4 @@ MonoBehaviour:
     scoreRankDate: {fileID: 0}
     stageBgmName: 
   scoreRank: {fileID: 0}
+  m_comboData: {fileID: 11400000, guid: bbe0a796abc11ca4285b1aacfa71f858, type: 2}
