@@ -13,7 +13,7 @@ public class ComboDataEditor : Editor
     private void OnEnable()
     {
         var _list = serializedObject.FindProperty("m_comboData");
-  
+
         m_reorderableList = new ReorderableList(serializedObject, _list)
         {
             // 要素の描画時のコールバック
@@ -29,6 +29,9 @@ public class ComboDataEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        //元のInspector部分を表示する
+        base.OnInspectorGUI();
+
         serializedObject.Update();
         m_reorderableList.DoLayoutList();
         serializedObject.ApplyModifiedProperties();

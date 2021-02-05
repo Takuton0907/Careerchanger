@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ComboData", menuName = "ScriptableObjects/ComboData"), Serializable]
+[CreateAssetMenu(fileName = "ComboData", menuName = "ScriptableObjects/ComboData")]
 public class ComboData : ScriptableObject
 {
     [SerializeField]
@@ -12,4 +12,10 @@ public class ComboData : ScriptableObject
 
     public List<Combo> GetCombos() => m_comboData;
     public AttackMode GetAttackMode() => m_mode;
+}
+
+[Serializable]
+public class Combo
+{
+    public List<AttackMode> combos = new List<AttackMode>();
 }
