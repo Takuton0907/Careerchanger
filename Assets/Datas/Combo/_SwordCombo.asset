@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: _SwordCombo
   m_EditorClassIdentifier: 
   m_mode: 1
-  m_comboData: []
+  m_comboData:
+  - combos: 010000000100000001000000

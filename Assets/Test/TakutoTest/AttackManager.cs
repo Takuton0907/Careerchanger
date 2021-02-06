@@ -20,14 +20,20 @@ public class AttackManager : MonoBehaviour
     [SerializeField] float m_arrowAngle; //2本目の矢の角度
 
     BoxCollider2D[] m_weaponCollider;//各武器のコライダーの参照配列
+    ComboManager m_comboManager;
+
+    delegate void AttackEvent(List<AttackMode> attackModes);
+    event AttackEvent _attackEvent;
 
     void Start()
     {
         WeaponsInstance();
+        GetAttackEvents();
+        m_comboManager = LevelManager.Instance.ComboManager;
     }
 
     /// <summary> 攻撃 </summary>
-    public void Attack(AttackMode attackMode)
+    public void Attack(AttackMode attackMode, bool combo)
     {
         m_weapons[weaponDic[attackMode]].SetActive(true);
         switch (attackMode)
@@ -51,6 +57,9 @@ public class AttackManager : MonoBehaviour
                 AttackBow();
                 break;
         }
+        if (m_comboManager == null) return;
+        List<AttackMode> attackModes = m_comboManager.Combo(attackMode, combo);
+        if (attackModes != null) _attackEvent?.Invoke(attackModes);
     }
     /// <summary> 各武器の生成 </summary>
     private void WeaponsInstance()
@@ -136,4 +145,13 @@ public class AttackManager : MonoBehaviour
         Instantiate(m_angleArrow, m_weapons[weaponDic[AttackMode.Bow]].transform.position + new Vector3(1, 0, 0), Quaternion.Euler(angle));
     }
     //------------------------------------------------------------------------------
+    /// <summary> コンボ時に呼び出す関数を登録する </summary>
+    private void GetAttackEvents()
+    {
+        AttackButton[] attackButtons = FindObjectsOfType<AttackButton>();
+        foreach (var item in attackButtons)
+        {
+            _attackEvent += item.ComboChanger;
+        }
+    }
 }

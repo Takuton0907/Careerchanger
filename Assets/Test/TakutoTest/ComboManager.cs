@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,34 +14,44 @@ public class ComboManager : MonoBehaviour
         LevelManager.Instance.ComboManager = this;
     }
 
-    /// <summary> コンボのチェック </summary>
-    public List<AttackMode> ComboChack(AttackMode attackMode)
+    /// <summary> コンボ </summary>
+    public List<AttackMode> Combo(AttackMode attackMode, bool combo)
     {
+        if (!combo && m_combos != null)//間違ったコンボの時の判定
+        {
+            m_combos = null;
+            m_comboCounter = 0;
+            return null;
+        } 
+
         var nextAttackModes = new List<AttackMode>();
-
         m_comboCounter++;
-
-        if (m_combos == null)
+        Debug.Log($"comboCounter = {m_comboCounter}");
+        if (m_combos == null)//コンボのデータがなければ追加新たに取得
         {
-            m_combos = GetNextCombo(attackMode);
+            m_combos = DataManager.Instance.GetComboData(attackMode).GetCombos(); ;
             for (int i = 0; i < m_combos.Count; i++)
             {
                 nextAttackModes.Add(m_combos[i].combos[m_comboCounter]);
             }
-
             return nextAttackModes;
         }
-        else
+
+        for (int i = 0; i < m_combos.Count; i++)
         {
-            for (int i = 0; i < m_combos.Count; i++)
+            if (m_combos[i].combos.Count == m_comboCounter)
             {
-                nextAttackModes.Add(m_combos[i].combos[m_comboCounter]);
+                if (attackMode == m_combos[i].combos[m_comboCounter - 1])
+                {
+                    m_comboCounter = 0;
+                    m_combos = null;
+                    Debug.Log("コンボ完了！");
+                    return null;
+                    //コンボが最後まで行った
+                }
             }
-
-            return nextAttackModes;
+            nextAttackModes.Add(m_combos[i].combos[m_comboCounter]);
         }
+        return nextAttackModes;
     }
-
-    /// <summary> 次のコンボデータの配列をGetします </summary>
-    private List<Combo> GetNextCombo(AttackMode attackMode) => DataManager.Instance.GetComboData(attackMode).GetCombos();
 }
