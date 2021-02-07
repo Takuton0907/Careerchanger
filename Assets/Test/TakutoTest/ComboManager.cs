@@ -21,6 +21,7 @@ public class ComboManager : MonoBehaviour
         {
             m_combos = null;
             m_comboCounter = 0;
+            Debug.Log($"{attackMode}でコンボ失敗");
             return null;
         } 
 

@@ -7,7 +7,7 @@ public class AttackButton : MonoBehaviour
     //自分がシーン上でどのボタンなのかを決める
     [SerializeField] int m_selfAttackButtonNumaber = 0;
     //自分の攻撃方法を決める
-    [SerializeField] AttackMode m_myAttackMode = AttackMode.Sword;
+    [SerializeField] AttackMode m_myAttackMode;
 
     bool m_nextCombo = false;
     AttackManager m_attackCon;
@@ -20,6 +20,7 @@ public class AttackButton : MonoBehaviour
             m_myAttackMode = attack;
         }
         m_attackCon = FindObjectOfType<AttackManager>();
+
     }
 
     public void OnClickAttack()
@@ -44,7 +45,7 @@ public class AttackButton : MonoBehaviour
         }
         if(!m_nextCombo)
         {
-            Debug.Log($"{gameObject.name}は次のコンボ対象ではありません");
+            Debug.Log($"{gameObject.name}の({m_myAttackMode})は次のコンボ対象ではありません");
         }
     }
 }
