@@ -21,6 +21,7 @@ public enum AttackMode
     Staff,
     Katana,
     Bow,
+    Smash,
 }
 
 public class Flags

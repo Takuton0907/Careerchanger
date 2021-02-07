@@ -27,10 +27,16 @@ public class ComboManager : MonoBehaviour
 
         var nextAttackModes = new List<AttackMode>();
         m_comboCounter++;
-        Debug.Log($"comboCounter = {m_comboCounter}");
         if (m_combos == null)//コンボのデータがなければ追加新たに取得
         {
-            m_combos = DataManager.Instance.GetComboData(attackMode).GetCombos(); ;
+            ComboData comboData = DataManager.Instance.GetComboData(attackMode);
+            if (comboData == null)
+            {
+                Debug.Log($"{attackMode}から始まるコンボが見つかりませんでした");
+                m_comboCounter = 0;
+                return null;
+            }
+            m_combos = comboData.GetCombos();
             for (int i = 0; i < m_combos.Count; i++)
             {
                 nextAttackModes.Add(m_combos[i].combos[m_comboCounter]);

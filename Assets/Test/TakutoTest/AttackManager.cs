@@ -18,6 +18,7 @@ public class AttackManager : MonoBehaviour
     [SerializeField] GameObject m_arrow; //矢用のオブジェクト
     [SerializeField] GameObject m_angleArrow; //2本目の矢
     [SerializeField] float m_arrowAngle; //2本目の矢の角度
+    [SerializeField] float m_smashSpeed = 1;
 
     BoxCollider2D[] m_weaponCollider;//各武器のコライダーの参照配列
     ComboManager m_comboManager;
@@ -55,6 +56,9 @@ public class AttackManager : MonoBehaviour
                 break;
             case AttackMode.Bow:
                 AttackBow();
+                break;
+            case AttackMode.Smash:
+                StartCoroutine(AttackSmash());
                 break;
         }
         if (m_comboManager == null) return;
@@ -136,6 +140,21 @@ public class AttackManager : MonoBehaviour
             m_weaponCollider[weaponDic[AttackMode.Axe]].enabled = true;
             yield return new WaitForSeconds(0.5f);
             m_weaponCollider[weaponDic[AttackMode.Axe]].enabled = false;
+        }
+    }
+    IEnumerator AttackSmash()
+    {
+        float colMaxSizeX = m_weaponCollider[weaponDic[AttackMode.Smash]].size.x;
+        m_weaponCollider[weaponDic[AttackMode.Smash]].size = new Vector2(0, m_weaponCollider[weaponDic[AttackMode.Smash]].size.y);
+        if (m_weaponCollider[weaponDic[AttackMode.Smash]])
+        {
+            m_weaponCollider[weaponDic[AttackMode.Smash]].enabled = true;
+            while (m_weaponCollider[weaponDic[AttackMode.Smash]].size.x <= colMaxSizeX)
+            {
+                m_weaponCollider[weaponDic[AttackMode.Smash]].size += new Vector2(Time.deltaTime * m_smashSpeed, 0);
+                yield return null;
+            }
+            m_weaponCollider[weaponDic[AttackMode.Smash]].enabled = true;
         }
     }
     private void AttackBow()
