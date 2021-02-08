@@ -93,6 +93,49 @@ MonoBehaviour:
     type: 3}
   m_maxLife: 3
   m_lifeUiSize: {x: 0.4, y: 0.4, z: 1}
+--- !u!1 &971924725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 971924726}
+  - component: {fileID: 971924727}
+  m_Layer: 0
+  m_Name: ComboManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &971924726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971924725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3904998424452916345}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &971924727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971924725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb9c089bb2638d4ba7509e76b425325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1441693125
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,10 +324,12 @@ MonoBehaviour:
   - {fileID: 4847247610747621192, guid: 9aa617555abcfda448ecc91372056f23, type: 3}
   - {fileID: 938639297942634786, guid: c9a9cedf30d5d284ba03f43a7098ffbc, type: 3}
   - {fileID: 7216971421973859570, guid: 77f0ad60450163248acd6b0aea494a78, type: 3}
+  - {fileID: 8993817165351626888, guid: 880e9f0ed05ebd2488e26150ba4f3c2d, type: 3}
   m_arrow: {fileID: 3322008808077864509, guid: aed85dc30cbb7634a8c0e4cfc7c5b061, type: 3}
   m_angleArrow: {fileID: 693419600514857525, guid: 40cd2591a3e70d3479adfad0a03ed687,
     type: 3}
   m_arrowAngle: 20
+  m_smashSpeed: 20
 --- !u!1 &3904998424288171400
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +408,7 @@ Transform:
   - {fileID: 286805668}
   - {fileID: 1459135286}
   - {fileID: 2097193858}
+  - {fileID: 971924726}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
