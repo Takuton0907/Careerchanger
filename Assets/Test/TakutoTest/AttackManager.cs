@@ -11,6 +11,7 @@ public class AttackManager : MonoBehaviour
         {AttackMode.Staff, 3 },
         {AttackMode.Katana, 4 },
         {AttackMode.Bow, 5 },
+        {AttackMode.Smash, 6 },
     };
 
     [SerializeField] Transform m_parentObje; //武器のオブジェクトのインスタンスのおやオブジェクト
@@ -145,16 +146,19 @@ public class AttackManager : MonoBehaviour
     IEnumerator AttackSmash()
     {
         float colMaxSizeX = m_weaponCollider[weaponDic[AttackMode.Smash]].size.x;
+        float colOffsetX = m_weaponCollider[weaponDic[AttackMode.Smash]].offset.x;
         m_weaponCollider[weaponDic[AttackMode.Smash]].size = new Vector2(0, m_weaponCollider[weaponDic[AttackMode.Smash]].size.y);
         if (m_weaponCollider[weaponDic[AttackMode.Smash]])
         {
             m_weaponCollider[weaponDic[AttackMode.Smash]].enabled = true;
-            while (m_weaponCollider[weaponDic[AttackMode.Smash]].size.x <= colMaxSizeX)
+            while (m_weaponCollider[weaponDic[AttackMode.Smash]].size.x < colMaxSizeX)
             {
                 m_weaponCollider[weaponDic[AttackMode.Smash]].size += new Vector2(Time.deltaTime * m_smashSpeed, 0);
+                m_weaponCollider[weaponDic[AttackMode.Smash]].offset += new Vector2(Time.deltaTime * m_smashSpeed, 0);
                 yield return null;
             }
-            m_weaponCollider[weaponDic[AttackMode.Smash]].enabled = true;
+            m_weaponCollider[weaponDic[AttackMode.Smash]].offset =  new Vector2(colOffsetX, m_weaponCollider[weaponDic[AttackMode.Smash]].offset.y);
+            m_weaponCollider[weaponDic[AttackMode.Smash]].enabled = false;
         }
     }
     private void AttackBow()

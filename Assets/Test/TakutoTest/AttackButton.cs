@@ -14,13 +14,13 @@ public class AttackButton : MonoBehaviour
 
     private void Start()
     {
+        m_attackCon = FindObjectOfType<AttackManager>();
+        if (m_selfAttackButtonNumaber >= 3) return;
         AttackMode attack = FlagManager.GetAttackButtons().LastWeapon[m_selfAttackButtonNumaber];
         if (attack != AttackMode.None)
         {
             m_myAttackMode = attack;
         }
-        m_attackCon = FindObjectOfType<AttackManager>();
-
     }
 
     public void OnClickAttack()
