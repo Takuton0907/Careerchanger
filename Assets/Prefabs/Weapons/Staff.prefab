@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4847247610747621193}
   - component: {fileID: 4847247610747621302}
   - component: {fileID: -1797261422099830253}
+  - component: {fileID: -7801588696974898630}
   m_Layer: 0
   m_Name: Staff
   m_TagString: Weapon
@@ -73,6 +74,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_attackPower: 1
   m_parentObj: {fileID: 0}
+--- !u!114 &-7801588696974898630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4847247610747621192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e495b38a9c66d48935cf0b12e417de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_recastTime: 5
+  m_attackTime: 0.5
 --- !u!1 &4847247611409133094
 GameObject:
   m_ObjectHideFlags: 0

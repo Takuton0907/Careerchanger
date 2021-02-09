@@ -317,19 +317,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_parentObje: {fileID: 0}
-  m_weapons:
-  - {fileID: 1179069055017348460, guid: a7a3fc52e9314d741a78245efd560089, type: 3}
-  - {fileID: 4376197173212815761, guid: 2aabc674c41e6a14e8169be2a9792b2a, type: 3}
-  - {fileID: 276433785067787158, guid: 8e047fa557dbe924b87a7455664fba90, type: 3}
-  - {fileID: 4847247610747621192, guid: 9aa617555abcfda448ecc91372056f23, type: 3}
-  - {fileID: 938639297942634786, guid: c9a9cedf30d5d284ba03f43a7098ffbc, type: 3}
-  - {fileID: 7216971421973859570, guid: 77f0ad60450163248acd6b0aea494a78, type: 3}
-  - {fileID: 8993817165351626888, guid: 880e9f0ed05ebd2488e26150ba4f3c2d, type: 3}
-  m_arrow: {fileID: 3322008808077864509, guid: aed85dc30cbb7634a8c0e4cfc7c5b061, type: 3}
-  m_angleArrow: {fileID: 693419600514857525, guid: 40cd2591a3e70d3479adfad0a03ed687,
-    type: 3}
-  m_arrowAngle: 20
-  m_smashSpeed: 20
+  m_attacks:
+  - {fileID: -7773029244366904688, guid: a7a3fc52e9314d741a78245efd560089, type: 3}
+  - {fileID: -6503550611466782673, guid: 2aabc674c41e6a14e8169be2a9792b2a, type: 3}
+  - {fileID: -2779802849801328074, guid: 8e047fa557dbe924b87a7455664fba90, type: 3}
+  - {fileID: -7801588696974898630, guid: 9aa617555abcfda448ecc91372056f23, type: 3}
+  - {fileID: 3600963437150752124, guid: c9a9cedf30d5d284ba03f43a7098ffbc, type: 3}
+  - {fileID: -8271642523550173452, guid: 77f0ad60450163248acd6b0aea494a78, type: 3}
+  - {fileID: 3596931080503684413, guid: 880e9f0ed05ebd2488e26150ba4f3c2d, type: 3}
 --- !u!1 &3904998424288171400
 GameObject:
   m_ObjectHideFlags: 0

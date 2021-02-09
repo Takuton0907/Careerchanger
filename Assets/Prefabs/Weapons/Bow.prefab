@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7216971421973859573}
   - component: {fileID: -8355782353099625926}
+  - component: {fileID: -8271642523550173452}
+  - component: {fileID: -7614643997863603153}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Weapon
@@ -46,6 +48,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_attackPower: 1
   m_parentObj: {fileID: 0}
+--- !u!114 &-8271642523550173452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216971421973859570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e495b38a9c66d48935cf0b12e417de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_recastTime: 1
+  m_attackTime: 0.5
+--- !u!114 &-7614643997863603153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216971421973859570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1e1ca3b91ed8f4586b23d492927564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_recastTime: 5
+  m_arrowAngle: 20
+  m_arrow: {fileID: 3322008808077864509, guid: aed85dc30cbb7634a8c0e4cfc7c5b061, type: 3}
+  m_angleArrow: {fileID: 693419600514857525, guid: 40cd2591a3e70d3479adfad0a03ed687,
+    type: 3}
 --- !u!1 &7216971422096406682
 GameObject:
   m_ObjectHideFlags: 0

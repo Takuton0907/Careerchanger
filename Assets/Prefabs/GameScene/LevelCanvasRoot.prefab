@@ -208,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_selfAttackButtonNumaber: 1
   m_myAttackMode: 1
+  m_recastTime: 5
 --- !u!1 &1027519669
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_selfAttackButtonNumaber: 0
   m_myAttackMode: 1
+  m_recastTime: 5
 --- !u!1 &1347775744
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_selfAttackButtonNumaber: 2
   m_myAttackMode: 2
+  m_recastTime: 5
 --- !u!1 &1672686281
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,9 +652,9 @@ GameObject:
   - component: {fileID: 1672686286}
   - component: {fileID: 1672686285}
   - component: {fileID: 1672686284}
-  - component: {fileID: 1672686283}
+  - component: {fileID: 490426203}
   m_Layer: 0
-  m_Name: Attack3
+  m_Name: Smash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -755,7 +758,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1672686283}
+      - m_Target: {fileID: 490426203}
         m_MethodName: OnClickAttack
         m_Mode: 1
         m_Arguments:
@@ -766,7 +769,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1672686283
+--- !u!114 &490426203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -775,11 +778,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1672686281}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 755d4b8be7c58b542bedbc677eea7418, type: 3}
+  m_Script: {fileID: 11500000, guid: 39fc439f00334ad4799690e9066b6065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_selfAttackButtonNumaber: 3
   m_myAttackMode: 7
+  m_recastTime: 5
 --- !u!1 &1973455594
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 276433785067787157}
   - component: {fileID: 276433785067787156}
   - component: {fileID: -4101623215668104279}
+  - component: {fileID: -2779802849801328074}
   m_Layer: 0
   m_Name: Spear
   m_TagString: Weapon
@@ -73,6 +74,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_attackPower: 1
   m_parentObj: {fileID: 0}
+--- !u!114 &-2779802849801328074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276433785067787158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e495b38a9c66d48935cf0b12e417de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_recastTime: 3
+  m_attackTime: 0.5
 --- !u!1 &276433786460120084
 GameObject:
   m_ObjectHideFlags: 0
