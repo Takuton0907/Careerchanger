@@ -28,4 +28,14 @@ public class ClearObject : MonoBehaviour
             m_col.isTrigger = true;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag == "Player")
+        {
+            LevelManager.Instance.GameClear();
+            m_col.isTrigger = true;
+        }
+    }
 }
