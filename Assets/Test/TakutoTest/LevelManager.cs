@@ -126,7 +126,8 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
                 m_moveObjectManager?.ManagedUpdate();
                 m_effectManager?.ManagedUpdate();
                 m_scoreManager?.TimeCount(Time.unscaledDeltaTime);
-                m_backGroundManager?.BackgroundMove();
+                m_backGroundManager?.RepeatedlyMove();
+                //m_backGroundManager?.BackgroundMove();
                 if (ScoreManager.ElapsedTime <= 0)
                 {
                     GameOver();
@@ -146,7 +147,6 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
             default:
                 break;
         }
-        m_backGroundManager?.RepeatedlyMove();
     }
 
     /// <summary> ステージのインスタンス </summary>
@@ -215,10 +215,10 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
                 m_gameOverManager?.GameOver();
                 break;
             case LevelState.Clear:
+                m_gameClearManager?.GameClear();
                 break;
             case LevelState.Result:
                 ScoreManager.Resalt();
-                m_gameClearManager?.GameClear();
                 break;
             default:
                 break;
