@@ -1,18 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class DropArea : MonoBehaviour, IDropHandler
 {
     public AttackMode weapon = 0;
     public void OnDrop(PointerEventData data)
     {
-        Debug.Log(gameObject.name);
+        StartCoroutine(Drop(data));
+    }
 
-        DragObj dragObj = data.pointerDrag.GetComponent<DragObj>();
+    IEnumerator Drop(PointerEventData data)
+    {
+        var dragObj = data.pointerDrag.GetComponent<DragObj>();
+
         if (dragObj != null && dragObj.weapon == weapon || dragObj != null && weapon == AttackMode.None)
         {
-            dragObj.parentTransform = this.transform;
+            dragObj.copyObj.GetComponent<DragObj>().parentTransform = this.transform;
             Debug.Log(gameObject.name + "に" + data.pointerDrag.name + "をドロップ");
         }
+        yield return null;
     }
 }

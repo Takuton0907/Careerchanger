@@ -8,8 +8,19 @@ public class DragObj : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 {
     public AttackMode weapon = 0;
     public Transform parentTransform;
-    GameObject copyObj;
-    DragObj CopyDragObj;
+    public GameObject copyObj { private set; get; }
+
+    Button m_mybutton = null;
+
+    private void Start()
+    {
+        m_mybutton = GetComponent<Button>();
+    }
+
+    public void OnClickMyButtonDisable()
+    {
+        m_mybutton.interactable = false;
+    }
 
     public void OnBeginDrag(PointerEventData data)
     {
@@ -20,38 +31,47 @@ public class DragObj : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         //copyObj.name = gameObject.name;
 
         copyObj.GetComponent<CanvasGroup>().blocksRaycasts = false;
-        copyObj.GetComponent<DragObj>().parentTransform = transform.parent;
-        copyObj.transform.SetParent(transform.parent.parent.parent);
+        copyObj.transform.SetParent(transform.parent);
 
         copyObj.GetComponent<RectTransform>().sizeDelta = gameObject.GetComponent<RectTransform>().sizeDelta;
-        Debug.Log($"copyObj = { copyObj.GetComponent<RectTransform>().sizeDelta } {gameObject.GetComponent<RectTransform>().sizeDelta}");
-
     }
-    public void OnDrag(PointerEventData data)
+
+    public void OnDrag(PointerEventData eventData)
     {
-        Vector3 TargetPos = Camera.main.ScreenToWorldPoint(data.position);
+        Vector3 TargetPos = Camera.main.ScreenToWorldPoint(eventData.position);
         TargetPos.z = -1;
         copyObj.transform.position = TargetPos;
     }
     public void OnEndDrag(PointerEventData data)
     {
-        if (weapon == parentTransform.GetComponent<DropArea>().weapon || parentTransform.GetComponent<DropArea>().weapon == AttackMode.None)
-        {
-            Debug.Log("OnEndDrag");
-            if (parentTransform.childCount >= 1)
-            {
-                foreach (Transform item in parentTransform)
-                {
-                    Destroy(item.gameObject);
-                }
-            }
-            copyObj.transform.SetParent(parentTransform);
-            copyObj.GetComponent<CanvasGroup>().blocksRaycasts = true;
-            copyObj.transform.position = parentTransform.transform.position;
-        }
-        else
-        {
+        StartCoroutine(EndDrag());
+    }
 
+    IEnumerator EndDrag()
+    {
+        yield return null; 
+        var copyDrag = copyObj.GetComponent<DragObj>();
+        if (copyDrag.parentTransform == null || copyDrag.parentTransform == default) 
+        {
+            Destroy(copyObj);
+            yield break; 
+        }
+        if (copyDrag.parentTransform.TryGetComponent(out DropArea drop))
+        {
+            if (drop.weapon == weapon || drop.weapon == AttackMode.None)
+            {
+                Debug.Log("OnEndDrag");
+                if (drop.transform.childCount >= 1)
+                {
+                    foreach (Transform item in parentTransform)
+                    {
+                        Destroy(item.gameObject);
+                    }
+                }
+                GetComponent<CanvasGroup>().blocksRaycasts = true;
+                copyObj.transform.SetParent(copyDrag.parentTransform);
+                copyObj.transform.localPosition = Vector3.zero;
+            }
         }
     }
 }
