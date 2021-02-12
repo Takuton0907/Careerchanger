@@ -26,7 +26,7 @@ public class DragObj : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     {
         Debug.Log("OnBeginDrag");
         copyObj = Instantiate(gameObject, gameObject.transform.position, Quaternion.identity, transform.parent);
-        copyObj.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprite/" + (weapon).ToString() + "Sprite");
+        //copyObj.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprite/" + (weapon).ToString() + "Sprite");
         copyObj.GetComponent<Button>().enabled = false;
         //copyObj.name = gameObject.name;
 
@@ -63,7 +63,7 @@ public class DragObj : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
                 Debug.Log("OnEndDrag");
                 if (drop.transform.childCount >= 1)
                 {
-                    foreach (Transform item in parentTransform)
+                    foreach (Transform item in copyDrag.parentTransform)
                     {
                         Destroy(item.gameObject);
                     }
