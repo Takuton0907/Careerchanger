@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: _AxeCombo
   m_EditorClassIdentifier: 
   m_mode: 2
-  m_comboData: []
+  m_comboData:
+  - combos: 020000000300000001000000
+  - combos: 020000000400000006000000
+  - combos: 020000000600000004000000

@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: _SpearCombo
   m_EditorClassIdentifier: 
   m_mode: 3
-  m_comboData: []
+  m_comboData:
+  - combos: 030000000200000001000000
+  - combos: 030000000100000002000000
+  - combos: 030000000600000004000000
+  - combos: 030000000400000006000000
