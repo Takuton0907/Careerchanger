@@ -66,13 +66,19 @@ public class WeaponSceneButton : MonoBehaviour
     public void OnclickPlay()
     {
         bool playJudge = true;
+        List<AttackMode> attackModes = new List<AttackMode>();
         foreach (var item in Select)
         {
             playJudge = item.HasChild();
+            if (playJudge)
+            {
+                attackModes.Add(item.GetComponentInChildren<DragObj>().weapon);
+            }
         }
 
         if (playJudge)
         {
+            FlagManager.SetWeapon(DataManager.Instance.GetStage().stageNum, attackModes.ToArray());
             FadeManager.Instance.LoadScene("Game", StartFadeInterval);
         }
     }

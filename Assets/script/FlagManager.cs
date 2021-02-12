@@ -57,4 +57,6 @@ public class FlagManager
         StageData stageData = DataManager.Instance.GetStage();
         return Get(stageData.stageNum);
     }
+
+    public static void SetWeapon(Stage stage, AttackMode[] attacks) => Flag[stage].LastWeapon = attacks;
 }
