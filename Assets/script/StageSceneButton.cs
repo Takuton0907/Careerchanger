@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class StageSceneButton : MonoBehaviour
 {
-    [SerializeField] Text challengeText;
-    [SerializeField] string stageName = "ステージ";
-    [SerializeField] string EXstageName = "隠しステージ";
-    [SerializeField] string challenge = "に挑戦しますか？";
+    [SerializeField] Image challengeImage;
+    [SerializeField] Sprite[] challenges;
     [SerializeField] Image ScoerImage = null;
+    [SerializeField] Sprite[] scoerImages;
     [SerializeField] float fadeInterval = 1;
 
     private void OnEnable()
@@ -23,26 +22,19 @@ public class StageSceneButton : MonoBehaviour
         string imagePath = string.Empty;
         if (scoer >= 10000)
         {
-            imagePath = "RankA";
+            ScoerImage.sprite = scoerImages[2];
         }
         else if (scoer >= 5000)
         {
-            imagePath = "RankB";
+            ScoerImage.sprite = scoerImages[1];
         }
         else if (scoer >= 2500)
         {
-            imagePath = "RankC";
+            ScoerImage.sprite = scoerImages[0];
         }
         else
         {
-            imagePath = "NoRank";
-        }
-
-        Sprite nextSprite = Resources.Load(imagePath) as Sprite;
-        Debug.Log($"取得したスプライは {nextSprite}");
-        if (nextSprite != null)
-        {
-            ScoerImage.sprite = nextSprite;
+            ScoerImage.sprite = null;
         }
     }
 }

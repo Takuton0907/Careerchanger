@@ -1654,6 +1654,26 @@ MonoBehaviour:
     stage: {fileID: 0}
     scoreRankDate: {fileID: 0}
     stageBgmName: 
+  - stageNum: 1
+    stage: {fileID: 0}
+    scoreRankDate: {fileID: 0}
+    stageBgmName: 
+  - stageNum: 2
+    stage: {fileID: 0}
+    scoreRankDate: {fileID: 0}
+    stageBgmName: 
+  - stageNum: 3
+    stage: {fileID: 0}
+    scoreRankDate: {fileID: 0}
+    stageBgmName: 
+  - stageNum: 4
+    stage: {fileID: 0}
+    scoreRankDate: {fileID: 0}
+    stageBgmName: 
+  - stageNum: 5
+    stage: {fileID: 0}
+    scoreRankDate: {fileID: 0}
+    stageBgmName: 
   scoreRank: {fileID: 11400000, guid: 0b3e0dba3aa30764d885fb74f5d1a56f, type: 2}
   m_comboDatas:
   - {fileID: 11400000, guid: 3ad23592c6137b947bd69c88e45d2a06, type: 2}

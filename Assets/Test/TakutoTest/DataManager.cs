@@ -50,7 +50,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
         {
             if (i + 1 >= stageDatas.Length)
             {
-                Debug.LogError($"{stage}は存在しません");
+                //Debug.LogError($"{stage}は存在しません");
                 break;
             }
             if (!FlagManager.Flag[stage].Clear) return false;
