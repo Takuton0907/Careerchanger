@@ -16,10 +16,9 @@ public class StageSceneButton : MonoBehaviour
 
     }
 
-    private void ScoerImageChange(Stage index)
+    public void ScoerImageChange(Stage index)
     {
         uint scoer = FlagManager.Flag[index].MaxScoer;
-        string imagePath = string.Empty;
         if (scoer >= 10000)
         {
             ScoerImage.sprite = scoerImages[2];

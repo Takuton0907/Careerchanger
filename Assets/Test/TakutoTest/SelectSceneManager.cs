@@ -5,6 +5,8 @@ public class SelectSceneManager : SingletonMonoBehaviour<SelectSceneManager>
 {
     PlaySelecter m_playSelecter = null;
 
+    StageSceneButton m_stageSceneButton = null;
+
     [Header("再生するBGMの名前")]
     [SerializeField] string m_titleBgmName = "Map BGM";
 
@@ -12,6 +14,7 @@ public class SelectSceneManager : SingletonMonoBehaviour<SelectSceneManager>
     {
         base.Awake();
         m_playSelecter = FindObjectOfType<PlaySelecter>();
+        m_stageSceneButton = GetComponent<StageSceneButton>();
     }
 
     private void Start()
@@ -23,6 +26,7 @@ public class SelectSceneManager : SingletonMonoBehaviour<SelectSceneManager>
     public void LevelSelect(Stage stage)
     {
         m_playSelecter.SelecterFadeIn();
+        m_stageSceneButton?.ScoerImageChange(stage);
         AudioManager.Instance.PlaySE("tap");
         DataManager.Instance.LevelSelect(stage);
     }
