@@ -6,10 +6,9 @@ using System;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class EnemyBase : MovingObject, IDamageHandler
 {
+    [SerializeField]
+    private int m_score = 100;
     [SerializeField] bool m_debug = true;
-
-    /// <summary> 敵の全撃破に関係するかしないかの判定用 </summary>
-    public bool KillCount { private set; get; } = true;
 
     protected EnemyAction m_actionState = EnemyAction.Run;
     
@@ -89,6 +88,10 @@ public abstract class EnemyBase : MovingObject, IDamageHandler
         if (m_currentLife <= 0) m_animetionCoroutine = StartCoroutine(DeathEnemy());
         else m_animetionCoroutine = StartCoroutine(Damaged());
         AudioManager.Instance.PlaySE(m_dmageClipName);
+
+        LevelManager.Instance.ScoreManager?.AddScore(m_score);
+        LevelManager.Instance.ScoreManager?.ComboUpdate();
+
         Debug.Log($"{gameObject.name} m_currentLife = {m_currentLife}");
     }
     //ダメージ

@@ -45,6 +45,8 @@ public class LifeManager : MonoBehaviour
 
         m_lifeCon.LifeUIUpdate(value);
 
+        LevelManager.Instance.ScoreManager?.ComboReset();
+
         if (m_currentlife <= 0)
         {
             LevelManager.Instance.GameOver();

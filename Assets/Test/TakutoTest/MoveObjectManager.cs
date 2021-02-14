@@ -7,8 +7,6 @@ public class MoveObjectManager : MonoBehaviour, IGameoverEvent, IClearEvent
 
     public PlayerCon PlayerCon { private set; get; }  = null;
 
-    public int TotalEnemyCount { get; private set; } = 0;
-
     private void Awake()
     {
         PlayerCon = FindObjectOfType<PlayerCon>();
@@ -19,14 +17,7 @@ public class MoveObjectManager : MonoBehaviour, IGameoverEvent, IClearEvent
     /// <summary> EnemyBaseの配列を返します </summary>
     public EnemyBase[] GetEnemyData() => m_enemies.ToArray();
     /// <summary> EnemyBaseを持ったオブジェクトを配列に追加します </summary>
-    public void AddEnemy(EnemyBase enemy)
-    {
-        m_enemies.Add(enemy);
-        if (enemy.KillCount)
-        {
-            TotalEnemyCount++;
-        }
-    }
+    public void AddEnemy(EnemyBase enemy) => m_enemies.Add(enemy);
     /// <summary> EnemyBaseを持ったオブジェクトを配列から削除します </summary>
     public void RemoveEnemy(EnemyBase enemy) => m_enemies.Remove(enemy);
     /// <summary> 管理されているUpdate </summary>
