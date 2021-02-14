@@ -13,7 +13,7 @@ Font:
   m_FontSize: 0
   m_Texture: {fileID: 0}
   m_AsciiStartOffset: 48
-  m_Tracking: 1
+  m_Tracking: 3
   m_CharacterSpacing: 0
   m_CharacterPadding: 1
   m_ConvertCase: 0
@@ -23,15 +23,15 @@ Font:
     uv:
       serializedVersion: 2
       x: 0
-      y: 0.5
+      y: 0.51
       width: 0.2
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 0
+      x: 10
       y: 0
-      width: 25.6
-      height: -32
+      width: 80
+      height: -170
     advance: 25.6
     flipped: 0
   - serializedVersion: 2
@@ -39,15 +39,15 @@ Font:
     uv:
       serializedVersion: 2
       x: 0.2
-      y: 0.5
+      y: 0.51
       width: 0.2
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 0
+      x: 15
       y: 0
-      width: 25.6
-      height: -32
+      width: 80
+      height: -170
     advance: 25.6
     flipped: 0
   - serializedVersion: 2
@@ -55,15 +55,15 @@ Font:
     uv:
       serializedVersion: 2
       x: 0.4
-      y: 0.5
+      y: 0.51
       width: 0.2
       height: 0.5
     vert:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 25.6
-      height: -32
+      width: 80
+      height: -170
     advance: 25.6
     flipped: 0
   - serializedVersion: 2
@@ -71,15 +71,15 @@ Font:
     uv:
       serializedVersion: 2
       x: 0.6
-      y: 0.5
+      y: 0.51
       width: 0.2
       height: 0.5
     vert:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 25.6
-      height: -32
+      width: 80
+      height: -170
     advance: 25.6
     flipped: 0
   - serializedVersion: 2
@@ -87,15 +87,15 @@ Font:
     uv:
       serializedVersion: 2
       x: 0.8
-      y: 0.5
+      y: 0.51
       width: 0.2
       height: 0.5
     vert:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 25.6
-      height: -32
+      width: 80
+      height: -170
     advance: 25.6
     flipped: 0
   - serializedVersion: 2
@@ -108,10 +108,10 @@ Font:
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 25.6
-      height: -32
+      x: 20
+      y: 3
+      width: 80
+      height: -170
     advance: 25.6
     flipped: 0
   - serializedVersion: 2
@@ -124,10 +124,10 @@ Font:
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 25.6
-      height: -32
+      x: 20
+      y: 3
+      width: 80
+      height: -170
     advance: 25.6
     flipped: 0
   - serializedVersion: 2
@@ -140,10 +140,10 @@ Font:
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 25.6
-      height: -32
+      x: 20
+      y: 3
+      width: 80
+      height: -170
     advance: 25.6
     flipped: 0
   - serializedVersion: 2
@@ -156,10 +156,10 @@ Font:
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 25.6
-      height: -32
+      x: 20
+      y: 3
+      width: 80
+      height: -170
     advance: 25.6
     flipped: 0
   - serializedVersion: 2
@@ -172,10 +172,10 @@ Font:
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 25.6
-      height: -32
+      x: 20
+      y: 3
+      width: 80
+      height: -170
     advance: 25.6
     flipped: 0
   m_KerningValues: []
