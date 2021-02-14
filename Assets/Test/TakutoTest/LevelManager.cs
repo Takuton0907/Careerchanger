@@ -121,13 +121,14 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
                 {
                     StateChange(LevelState.Play);
                 }
+                m_moveObjectManager?.ManagedUpdate();
+                m_backGroundManager?.RepeatedlyMove();
                 break;
             case LevelState.Play:
                 m_moveObjectManager?.ManagedUpdate();
                 m_effectManager?.ManagedUpdate();
                 m_scoreManager?.TimeCount(Time.unscaledDeltaTime);
                 m_backGroundManager?.RepeatedlyMove();
-                //m_backGroundManager?.BackgroundMove();
                 if (ScoreManager.ElapsedTime <= 0)
                 {
                     GameOver();
@@ -197,13 +198,11 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
         switch (levelState)
         {
             case LevelState.Init:
+                m_moveObjectManager?.AllMove();
                 break;
             case LevelState.Start:
-                m_moveObjectManager?.AllStop();
-                m_moveObjectManager?.AllEnemyAnimationOnlyStart();
                 break;
             case LevelState.Play:
-                m_moveObjectManager?.AllMove();
                 break;
             case LevelState.Tutorial:
                 m_moveObjectManager?.AllStop();
