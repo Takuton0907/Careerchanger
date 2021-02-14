@@ -11,13 +11,9 @@ public class StageSceneButton : MonoBehaviour
     [SerializeField] Sprite[] scoerImages;
     [SerializeField] float fadeInterval = 1;
 
-    private void OnEnable()
-    {
-
-    }
-
     public void ScoerImageChange(Stage index)
     {
+        ScoerImage.color = Color.white;
         uint scoer = FlagManager.Flag[index].MaxScoer;
         if (scoer >= 10000)
         {
@@ -34,6 +30,7 @@ public class StageSceneButton : MonoBehaviour
         else
         {
             ScoerImage.sprite = null;
+            ScoerImage.color = Color.clear;
         }
     }
 }
