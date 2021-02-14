@@ -38,7 +38,7 @@ public class PlayerCon : MovingObject, IDamageHandler
     }
     public void Init()
     {
-        ChangeState(PlayerState.Idle1);
+        ChangeState(PlayerState.Run);
     }
     public void Play()
     {

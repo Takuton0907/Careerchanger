@@ -10,6 +10,7 @@ public class PlayerJump : PlayerActionBase
     [SerializeField] float flightIntervalTime = 1;
     public Vector3 cameraAdjust;
 
+    Rigidbody2D m_rig;
     Vector3 underPosi;
     private bool toJump = true;
 
@@ -26,6 +27,7 @@ public class PlayerJump : PlayerActionBase
     private void Start()
     {
         flightTime = flightIntervalTime;
+        m_rig = GetComponent<Rigidbody2D>();
     }
 
     protected override IEnumerator PlayerAction(float piece)
@@ -72,6 +74,8 @@ public class PlayerJump : PlayerActionBase
         if (collision.tag == "Ground")
         {
             jumpSwitch = JumpState.onGround;
+            m_rig.gravityScale = 0;
+            m_rig.velocity = Vector2.zero;
             toJump = false;
         }
     }
