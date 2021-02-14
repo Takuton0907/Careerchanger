@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -13,12 +14,16 @@ public class ScoreManager : MonoBehaviour
     /// <summary> 現在のコンボ </summary>
     public int m_combo { get; private set; } = 0;
 
-    private void Start()
-    {
-        LevelManager.Instance.ScoreManager = this;
-    }
+    public Text m_scoreText { get; set; } = null;
+    public Text m_comboText { get; set; } = null;
+
+    public delegate void ScoresFanc();
+    public ScoresFanc ComboResetCallback { get; set; }
+    public ScoresFanc ComboCallback { get; set; }
+
     private void Awake()
     {
+        LevelManager.Instance.ScoreManager = this;
         Setup();
     }
 
@@ -26,13 +31,32 @@ public class ScoreManager : MonoBehaviour
     public void ComboUpdate()
     {
         m_combo++;
+        if (m_comboText != null)
+        {
+            m_comboText.text = m_combo.ToString();
+        }
         if (m_combo > Combo)
         {
             Combo = m_combo;
         }
-    } 
+        ComboCallback?.Invoke();
+    }
+    /// <summary> コンボのリセットをします </summary>
+    public void ComboReset()
+    {
+        m_combo = 0;
+        m_comboText.text = m_combo.ToString();
+        ComboResetCallback?.Invoke();
+    }
     /// <summary> スコアの加算 </summary>
-    public void AddScore(int value) => Score += value;
+    public void AddScore(int value)
+    {
+        Score += value;
+        if (m_scoreText != null)
+        {
+            m_scoreText.text = Score.ToString();
+        }
+    }
     /// <summary> スコアの計算結果を返します </summary>
     private int GetScore() => Score;
     /// <summary> スコアの初期化 </summary>
