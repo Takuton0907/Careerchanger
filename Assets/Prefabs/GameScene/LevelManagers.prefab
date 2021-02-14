@@ -43,9 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c97d3c7253025429366caa679fba6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyDefeatPoint: 100
-  m_remainingTime: 50
-  m_maxTime: 120
 --- !u!1 &694524421
 GameObject:
   m_ObjectHideFlags: 0

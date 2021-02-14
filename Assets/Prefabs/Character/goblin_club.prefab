@@ -3149,6 +3149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveState: 0
+  m_score: 100
   m_debug: 1
   m_maxLife: 1
   m_maxSpeed: 2
