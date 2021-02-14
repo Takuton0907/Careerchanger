@@ -13,7 +13,6 @@ public class ScoreRank : ScriptableObject
 
 public enum StageClearRank
 {
-    S,
     A,
     B,
     C,

@@ -93,13 +93,11 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
         base.Awake();
         StageInstance();
     }
-
     private void Start()
     {
         StateChange(LevelState.Init); 
         AudioManager.Instance.PlayBGM(DataManager.Instance.GetStage().stageBgmName);
     }
-
     private void Update()
     {
         switch (levelState)
@@ -127,12 +125,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
             case LevelState.Play:
                 m_moveObjectManager?.ManagedUpdate();
                 m_effectManager?.ManagedUpdate();
-                m_scoreManager?.TimeCount(Time.unscaledDeltaTime);
                 m_backGroundManager?.RepeatedlyMove();
-                if (ScoreManager.ElapsedTime <= 0)
-                {
-                    GameOver();
-                }
                 break;
             case LevelState.Tutorial:
                 m_effectManager?.ManagedUpdate();
