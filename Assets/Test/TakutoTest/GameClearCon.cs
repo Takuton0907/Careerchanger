@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GameClearCon : MonoBehaviour
+public class GameClearCon : MonoBehaviour, IUiHandler
 {
     CanvasGroup m_scoerGroup;
 
     private void Awake()
     {
         m_scoerGroup = GetComponent<CanvasGroup>();
-        m_scoerGroup.alpha = 0;
-        m_scoerGroup.blocksRaycasts = false;
+        Disable();
     }
 
-    public IEnumerator InstanceGameClearUI(float interval)
+    public IEnumerator InstanceGameClearUI()
     {
+        float interval;
         ScoreManager scoreManager = LevelManager.Instance.ScoreManager;
 
         scoreManager.Resalt();
@@ -74,5 +74,16 @@ public class GameClearCon : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
+    }
+
+    public void Enable()
+    {
+        StartCoroutine(InstanceGameClearUI());
+    }
+
+    public void Disable()
+    {
+        m_scoerGroup.alpha = 0;
+        m_scoerGroup.blocksRaycasts = false;
     }
 }

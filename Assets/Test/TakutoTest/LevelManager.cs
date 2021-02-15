@@ -86,6 +86,13 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
         get { return m_comboManager; } 
         set { if (m_comboManager == null) m_comboManager = value; }
     }
+
+    private UiManager m_uiManager;
+    public UiManager UiManager
+    {
+        get { return m_uiManager; }
+        set { if (m_uiManager == null) m_uiManager = value; }
+    }
     #endregion
 
     private new void Awake()
@@ -196,12 +203,15 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
             case LevelState.Start:
                 break;
             case LevelState.Play:
+                m_moveObjectManager?.AllMove();
+                m_uiManager.EnableOnlyOne<MainUICon>();
                 break;
             case LevelState.Tutorial:
                 m_moveObjectManager?.AllStop();
                 break;
             case LevelState.Stop:
                 m_moveObjectManager?.AllStop();
+                m_uiManager.Enable<MenuUiCon>();
                 break;
             case LevelState.GameOver:
                 m_gameOverManager?.GameOver();

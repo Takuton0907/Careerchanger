@@ -50,10 +50,8 @@ public class GameOverManager : MonoBehaviour
 
         AudioManager.Instance.PlaySE(m_gameoverSe);
 
-        //StartCoroutine(FindObjectOfType<MainUICon>().MainUIFadeOut());
-
         yield return null;
 
-        m_gameOverCon?.GameOverWindowOpne();
+        LevelManager.Instance.UiManager?.Enable<GameOverWindwCon>();
     }
 }

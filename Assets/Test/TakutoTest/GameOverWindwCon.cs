@@ -1,10 +1,8 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverWindwCon : MonoBehaviour
+public class GameOverWindwCon : MonoBehaviour, IUiHandler
 {
     [SerializeField] Button m_retryButton;
     [SerializeField] Button m_giveupButton;
@@ -14,17 +12,11 @@ public class GameOverWindwCon : MonoBehaviour
     private void Awake()
     {
         m_canvasGroup = GetComponent<CanvasGroup>();
-        m_canvasGroup.alpha = 0;
-        m_canvasGroup.blocksRaycasts = false;
 
         m_retryButton.gameObject.SetActive(false);
         m_giveupButton.gameObject.SetActive(false);
-    }
 
-    public void GameOverWindowOpne()
-    {
-        m_canvasGroup.blocksRaycasts = true;
-        StartCoroutine(InstaceGameOverUI(2));
+        Disable();
     }
 
     //雑なべた書きでフェードを実装しています。
@@ -42,5 +34,17 @@ public class GameOverWindwCon : MonoBehaviour
 
         m_retryButton.gameObject.SetActive(true);
         m_giveupButton.gameObject.SetActive(true);
+    }
+
+    public void Enable()
+    {
+        m_canvasGroup.blocksRaycasts = true;
+        StartCoroutine(InstaceGameOverUI(2));
+    }
+
+    public void Disable()
+    {
+        m_canvasGroup.alpha = 0;
+        m_canvasGroup.blocksRaycasts = false;
     }
 }
