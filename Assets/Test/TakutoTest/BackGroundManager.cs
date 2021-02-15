@@ -75,7 +75,6 @@ public class BackGroundManager : MonoBehaviour
             {
                 cloud.localPosition = new Vector3(m_cloudRetunePosiX - 0.1f, 0, cloud.position.z);
             }
-            Debug.Log(m_cloudRetunePosiX);
         }
     }
 
