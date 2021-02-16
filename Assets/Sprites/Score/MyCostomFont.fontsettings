@@ -28,7 +28,7 @@ Font:
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 10
+      x: 25
       y: 0
       width: 80
       height: -170
@@ -44,7 +44,7 @@ Font:
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 25
+      x: 30
       y: 0
       width: 80
       height: -170
@@ -60,7 +60,7 @@ Font:
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 0
+      x: 20
       y: 0
       width: 80
       height: -170
@@ -76,7 +76,7 @@ Font:
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 0
+      x: 20
       y: 0
       width: 80
       height: -170
@@ -172,7 +172,7 @@ Font:
       height: 0.5
     vert:
       serializedVersion: 2
-      x: 20
+      x: 10
       y: 3
       width: 80
       height: -170
