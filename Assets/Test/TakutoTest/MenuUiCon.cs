@@ -25,12 +25,14 @@ public class MenuUiCon : MonoBehaviour, IUiHandler
     {
         m_canvasGroup.blocksRaycasts = false;
         StartCoroutine(FadeOut());
+        StartCoroutine(CanvasGroupFadeOut());
     }
 
     public void Enable()
     {
         m_canvasGroup.blocksRaycasts = true;
         StartCoroutine(Fadein());
+        StartCoroutine(CanvasGroupFadeIn());
     }
 
     IEnumerator Fadein()
@@ -58,5 +60,27 @@ public class MenuUiCon : MonoBehaviour, IUiHandler
         }
 
         m_frameTrans.localScale = Vector2.zero;
+    }
+
+    IEnumerator CanvasGroupFadeOut()
+    {
+        float timer = m_fadeOutTime;
+        while (m_canvasGroup.alpha > 0)
+        {
+            m_canvasGroup.alpha = timer / m_fadeOutTime;
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    IEnumerator CanvasGroupFadeIn()
+    {
+        float timer = 0;
+        while (m_canvasGroup.alpha < 1)
+        {
+            m_canvasGroup.alpha = timer / m_fadeInTime;
+            timer += Time.deltaTime;
+            yield return null;
+        }
     }
 }
