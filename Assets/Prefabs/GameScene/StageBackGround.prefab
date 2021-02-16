@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_cloud: {fileID: 7185772921464965344}
-  m_cloudSpeed: -1.3
+  m_cloudSpeed: 0
   m_playerSpeedAdd: 0.2
 --- !u!1 &7185772921464965344
 GameObject:
