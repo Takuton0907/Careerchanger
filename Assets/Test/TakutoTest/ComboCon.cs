@@ -49,7 +49,7 @@ public class ComboCon : MonoBehaviour
     {
         while (m_canvasGroup.alpha < 1)
         {
-            m_canvasGroup.alpha += Time.deltaTime * m_fadeSpeed * 10;
+            m_canvasGroup.alpha += Time.deltaTime * m_fadeSpeed * 2;
             yield return null;
         }
     }
