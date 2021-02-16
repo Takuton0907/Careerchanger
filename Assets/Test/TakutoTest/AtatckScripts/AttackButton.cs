@@ -15,6 +15,7 @@ public class AttackButton : MonoBehaviour
     bool m_nextCombo = false;
     protected AttackManager m_attackCon;
     protected Button m_button;
+    protected Text m_recastText;
 
     protected virtual void Start()
     {
@@ -26,6 +27,7 @@ public class AttackButton : MonoBehaviour
             m_myAttackMode = attack;
         }
         m_button = GetComponent<Button>();
+        m_recastText = GetComponentInChildren<Text>();
         Able();
     }
 
@@ -59,21 +61,24 @@ public class AttackButton : MonoBehaviour
     public virtual void Able()
     {
         m_button.interactable = true;
+        m_recastText?.gameObject.SetActive(false);
     }
 
     public virtual void Unable()
     {
         m_button.interactable = false;
         StartCoroutine(Recast());
+        m_recastText?.gameObject.SetActive(true);
     }
 
     protected virtual IEnumerator Recast()
     {
-        float timer = 0;
-        while (m_recastTime > timer)
+        float timer = m_recastTime;
+        while (0 < timer)
         {
+            m_recastText.text = timer.ToString("0");
             //リキャストアニメーション
-            timer += Time.deltaTime;
+            timer -= Time.deltaTime;
             yield return null;
         }
         Able();
