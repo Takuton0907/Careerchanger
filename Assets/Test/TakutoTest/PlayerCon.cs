@@ -98,14 +98,6 @@ public class PlayerCon : MovingObject, IDamageHandler
         }
     }
 
-    public void Clear()
-    {
-
-    }
-    public void GameOver()
-    {
-
-    }
     public void Jump()
     {
         m_playerJump.RunAction(m_piece);
