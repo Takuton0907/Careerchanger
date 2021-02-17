@@ -52,6 +52,6 @@ public class GameOverManager : MonoBehaviour
 
         yield return null;
 
-        LevelManager.Instance.UiManager?.Enable<GameOverWindwCon>();
+        UiManager.Enable<GameOverWindwCon>();
     }
 }

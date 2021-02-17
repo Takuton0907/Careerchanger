@@ -1,27 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class UiManager : MonoBehaviour
+public static class UiManager
 {
-    IUiHandler[] m_uiHandlers;
+    static IUiHandler[] m_uiHandlers;
 
-    private void Awake()
+    [RuntimeInitializeOnLoadMethod]
+    static void Init()
     {
-        LevelManager.Instance.UiManager = this;
-    }
-
-    private void Start()
-    {
+        SceneManager.sceneLoaded += GetUiHandlers;
         GetUiHandlers();
     }
 
-    void GetUiHandlers()
+    static void GetUiHandlers(Scene nextScene, LoadSceneMode mode)
+    {
+        m_uiHandlers = GameObjectExtensions.FindObjectsOfInterface<IUiHandler>();
+    }
+    static void GetUiHandlers()
     {
         m_uiHandlers = GameObjectExtensions.FindObjectsOfInterface<IUiHandler>();
     }
 
     /// <summary> 特定のUIを有効化します </summary>
     /// <typeparam name="T">扱いたいクラス(IUiHandlerをしている必要がある)</typeparam>
-    public void Enable<T>()
+    public static void Enable<T>()
     {
         foreach (var item in m_uiHandlers)
         {
@@ -33,7 +35,7 @@ public class UiManager : MonoBehaviour
     }
     /// <summary> 特定のUIだけを有効化し他を無効にします </summary>
     /// <typeparam name="T">扱いたいクラス(IUiHandlerをしている必要がある)</typeparam>
-    public void EnableOnlyOne<T>()
+    public static void EnableOnlyOne<T>()
     {
         foreach (var item in m_uiHandlers)
         {
@@ -48,7 +50,7 @@ public class UiManager : MonoBehaviour
         }
     }
     /// <summary> すべてのUIを有効化します </summary>
-    public void EnableAll()
+    public static void EnableAll()
     {
         foreach (var item in m_uiHandlers)
         {
@@ -57,7 +59,7 @@ public class UiManager : MonoBehaviour
     }
     /// <summary> 特定のUIを無効化します </summary>
     /// <typeparam name="T">扱いたいクラス(IUiHandlerをしている必要がある)</typeparam>
-    public void Disable<T>()
+    public static void Disable<T>()
     {
         foreach (var item in m_uiHandlers)
         {
@@ -68,7 +70,7 @@ public class UiManager : MonoBehaviour
         }
     }
     /// <summary> すべてのUIを無効化します </summary>
-    public void EnableAll<T>()
+    public static void EnableAll<T>()
     {
         foreach (var item in m_uiHandlers)
         {
