@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlaySelecter : MonoBehaviour
 {
+    [SerializeField]
+    string m_tochSeName = "sound_no";
+
     private void Awake()
     {
         transform.localScale = Vector2.zero;
@@ -16,6 +19,7 @@ public class PlaySelecter : MonoBehaviour
 
     public void SelecterFadeOut()
     {
+        AudioManager.Instance.PlaySE(m_tochSeName);
         StartCoroutine(FadeOut());
     }
 

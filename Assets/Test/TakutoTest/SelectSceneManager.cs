@@ -27,20 +27,18 @@ public class SelectSceneManager : SingletonMonoBehaviour<SelectSceneManager>
     {
         m_playSelecter.SelecterFadeIn();
         m_stageSceneButton?.ScoerImageChange(stage);
-        AudioManager.Instance.PlaySE("tap");
         DataManager.Instance.LevelSelect(stage);
     }
 
     public void LoadLevel()
     {
         StartCoroutine(LevelLoad());
-        AudioManager.Instance.PlaySE("tap");
+        AudioManager.Instance.PlaySE("sound_ok");
     }
 
     public void Cancel()
     {
         m_playSelecter.SelecterFadeOut();
-        AudioManager.Instance.PlaySE("tap");
     }
 
     IEnumerator LevelLoad()

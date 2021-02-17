@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69afc955927dd384ea246f4dc13c158b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_tochSeName: sound_no
 --- !u!1 &23325289
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_stage: 5
   m_image: {fileID: 21300000, guid: a9356448bdbec514f98b15619eb80249, type: 3}
+  m_tochSeName: sound_ok
 --- !u!1 &359292617
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_stage: 0
   m_image: {fileID: 21300000, guid: 2a27d89eda545854e91902c5be0ca45b, type: 3}
+  m_tochSeName: sound_ok
 --- !u!1 &511921493
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,6 +962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_stage: 1
   m_image: {fileID: 21300000, guid: 9b86bc5982e9a05488b4784d3b529d28, type: 3}
+  m_tochSeName: sound_ok
 --- !u!1 &636196001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,6 +1106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_stage: 4
   m_image: {fileID: 21300000, guid: 9317ff906ef56764cb8a28793d2b5ef4, type: 3}
+  m_tochSeName: sound_ok
 --- !u!1 &862449897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,6 +1250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_stage: 2
   m_image: {fileID: 21300000, guid: a001148b5374f0340bf5f19c31a1920c, type: 3}
+  m_tochSeName: sound_ok
 --- !u!1 &900651647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,6 +1588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_stage: 3
   m_image: {fileID: 21300000, guid: c5ea9ee57a3a04847b86b2999e68fe3c, type: 3}
+  m_tochSeName: sound_ok
 --- !u!1 &1478904439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,7 +1844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e521a8885aaa0464fafc2cc559498683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_titleBgmName: Map BGM
+  m_titleBgmName: "\u5C0F\u3055\u306A\u5192\u967A"
 --- !u!4 &1843485566
 Transform:
   m_ObjectHideFlags: 0
@@ -1966,6 +1973,7 @@ GameObject:
   - component: {fileID: 1895924341}
   - component: {fileID: 1895924340}
   - component: {fileID: 1895924339}
+  - component: {fileID: 1895924342}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -2035,8 +2043,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1843485564}
-        m_MethodName: OnClickBack
+      - m_Target: {fileID: 1895924342}
+        m_MethodName: SceneLoad
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2082,6 +2090,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895924337}
   m_CullTransparentMesh: 0
+--- !u!114 &1895924342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895924337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b194cdaa293bd4d971e1b54aea24d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sceneNames: 0
+  fadetime: 2
+  m_tochSe: sound_ok
 --- !u!1 &1908528818
 GameObject:
   m_ObjectHideFlags: 0

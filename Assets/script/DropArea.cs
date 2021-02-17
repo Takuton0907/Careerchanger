@@ -5,8 +5,13 @@ using System.Collections;
 public class DropArea : MonoBehaviour, IDropHandler
 {
     public AttackMode weapon = 0;
+
+    [SerializeField]
+    string m_tochSe = "sound_ok";
+
     public void OnDrop(PointerEventData data)
     {
+        AudioManager.Instance.PlaySE(m_tochSe);
         StartCoroutine(Drop(data));
     }
 

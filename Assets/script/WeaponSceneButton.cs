@@ -11,20 +11,25 @@ public class WeaponSceneButton : MonoBehaviour
     [SerializeField] float StartFadeInterval = 2;
     [SerializeField] float BackFadeInterval = 2;
 
+    [SerializeField] string m_BgmName = "小さな冒険";
+    [SerializeField] string m_tochSe = "sound_ok";
+
     DragObj dragObj;
 
     private void Start()
     {
-
+        AudioManager.Instance.PlayBGM(m_BgmName);
     }
 
     public void OnClickBack()
     {
+        AudioManager.Instance.PlaySE(m_tochSe);
         FadeManager.Instance.LoadScene("StageSelect", BackFadeInterval);
     }
 
     public void OnclickWeapon(GameObject obj)
     {
+        AudioManager.Instance.PlaySE(m_tochSe);
         string imagePath = string.Empty; 
         dragObj = obj.GetComponent<DragObj>();
         switch (dragObj.weapon)

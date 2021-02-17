@@ -9,6 +9,8 @@ public class SelectButton : MonoBehaviour
 
     [SerializeField]
     Sprite m_image = null;
+    [SerializeField]
+    string m_tochSeName = "sound_ok";
 
     private void Start()
     {
@@ -27,6 +29,7 @@ public class SelectButton : MonoBehaviour
 
     public void OcClickGameStart()
     {
+        AudioManager.Instance.PlaySE(m_tochSeName);
         if (SelectSceneManager.Instance != null)
         {
             SelectSceneManager.Instance.LevelSelect(m_stage);

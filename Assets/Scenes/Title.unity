@@ -611,6 +611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeInterval: 2
   m_animator: {fileID: 144375595}
+  m_bgmNamae: "\u5C0E\u304D\u306E\u65C5\u4EBA"
 --- !u!4 &579453963
 Transform:
   m_ObjectHideFlags: 0
