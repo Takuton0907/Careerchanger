@@ -17,6 +17,9 @@ public class AttackManager : MonoBehaviour
     [SerializeField] Transform m_parentObje; //武器のオブジェクトのインスタンスのおやオブジェクト
     [SerializeField] AttackBase[] m_attacks;
 
+    [SerializeField] Sprite[] m_weaponSprite; 
+    [SerializeField] Sprite[] m_weaponSpriteEnable; 
+
     BoxCollider2D[] m_weaponCollider;//各武器のコライダーの参照配列
     ComboManager m_comboManager;
 
@@ -91,6 +94,15 @@ public class AttackManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         obj.SetActive(false);
+    }
 
+    public Sprite GetWeaponSprite(AttackMode attackMode)
+    {
+        return m_weaponSprite[weaponDic[attackMode]];
+    }
+
+    public Sprite GetWeaponEnableSprite(AttackMode attackMode)
+    {
+        return m_weaponSpriteEnable[weaponDic[attackMode]];
     }
 }

@@ -29,6 +29,8 @@ public class AttackButton : MonoBehaviour
         m_button = GetComponent<Button>();
         m_recastText = GetComponentInChildren<Text>();
         Able();
+
+        GetComponent<Image>().sprite = FindObjectOfType<AttackManager>().GetWeaponSprite(m_myAttackMode);
     }
 
     public void OnClickAttack()
