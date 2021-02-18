@@ -138,9 +138,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 460
-        width: 400
-        height: 400
+        y: 480
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,7 +148,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03657460ebb84a7459d4c7432d6d5329
+      spriteID: 50696ee2c33c2c94fa80f364bab0b795
       internalID: -5999526395891338195
       vertices: []
       indices: 
@@ -158,10 +158,10 @@ TextureImporter:
       name: effect_bow_1
       rect:
         serializedVersion: 2
-        x: 400
-        y: 460
-        width: 400
-        height: 400
+        x: 480
+        y: 480
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,7 +169,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5abe0a53539c28843be25e2f00f6d59c
+      spriteID: b5248002d9eb7a348b8a89110551e390
       internalID: -3166659854410296737
       vertices: []
       indices: 
@@ -179,10 +179,10 @@ TextureImporter:
       name: effect_bow_2
       rect:
         serializedVersion: 2
-        x: 800
-        y: 460
-        width: 400
-        height: 400
+        x: 960
+        y: 480
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,7 +190,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7660365455a4fe47843cc2f9eaf9c7c
+      spriteID: bb6635df54256ce4a9ee2cd27a6b0801
       internalID: -3005295637511593901
       vertices: []
       indices: 
@@ -200,10 +200,10 @@ TextureImporter:
       name: effect_bow_3
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 460
-        width: 400
-        height: 400
+        x: 1440
+        y: 480
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,7 +211,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a1b0e03e9f1b1f40974b6f7dbaae103
+      spriteID: 63575decc65d4d84f892241ab960be8d
       internalID: -6602545437321228762
       vertices: []
       indices: 
@@ -221,10 +221,10 @@ TextureImporter:
       name: effect_bow_4
       rect:
         serializedVersion: 2
-        x: 1600
-        y: 460
-        width: 400
-        height: 400
+        x: 1920
+        y: 480
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,7 +232,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d43d9cf3193573241b402476637c0847
+      spriteID: 4fdb65240c341c8409a903954408a910
       internalID: -3825955884524300610
       vertices: []
       indices: 
@@ -242,10 +242,10 @@ TextureImporter:
       name: effect_bow_5
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 460
-        width: 400
-        height: 400
+        x: 0
+        y: 0
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,7 +253,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3ecb5259835f3e4a9874669c7aa8238
+      spriteID: 131b0c70cb3592d468924d97749273f5
       internalID: 3851524612418140129
       vertices: []
       indices: 
@@ -263,10 +263,10 @@ TextureImporter:
       name: effect_bow_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 60
-        width: 400
-        height: 400
+        x: 480
+        y: 0
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -274,7 +274,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b870c12017a37234d9be38f89c1ee32b
+      spriteID: bb8c31a9c6e3d7a4b9d4c9deef979349
       internalID: 4492627476884154366
       vertices: []
       indices: 
@@ -284,10 +284,10 @@ TextureImporter:
       name: effect_bow_7
       rect:
         serializedVersion: 2
-        x: 400
-        y: 60
-        width: 400
-        height: 400
+        x: 960
+        y: 0
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,7 +295,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a4ec7ee85f25c44dba907b9436a0a83
+      spriteID: 88672fdf03cfb7c4c8f4684086c8e3fb
       internalID: 7182213749719765139
       vertices: []
       indices: 
@@ -305,10 +305,10 @@ TextureImporter:
       name: effect_bow_8
       rect:
         serializedVersion: 2
-        x: 800
-        y: 60
-        width: 400
-        height: 400
+        x: 1440
+        y: 0
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,7 +316,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a012a848aa3bb0749a5f829be3d5b2db
+      spriteID: c84865f8c1ee96344a59b1f100bbe99b
       internalID: -3488817525381673075
       vertices: []
       indices: 
@@ -326,10 +326,10 @@ TextureImporter:
       name: effect_bow_9
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 60
-        width: 400
-        height: 400
+        x: 1920
+        y: 0
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -337,50 +337,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2c6a0d6dfc04c1419e9d162bd67638d
+      spriteID: 90f8017ba2c8a0444aafd4193b96bb53
       internalID: -5934161887548150627
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_bow_10
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 60
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72d312e58aa767f479db85bcaba14117
-      internalID: 6588594849263817954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_bow_11
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 60
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 678d79ae5a3fd92488b99025c996b8c1
-      internalID: 6133892785532307422
       vertices: []
       indices: 
       edges: []
