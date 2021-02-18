@@ -1646,12 +1646,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextStage:
     stageNum: 0
-    stage: {fileID: 0}
+    stage: {fileID: 7444181801001568469, guid: 8ee85e1bbfcdc1f45bc24bfa80772deb, type: 3}
     scoreRankDate: {fileID: 0}
     stageBgmName: 
   stageDatas:
   - stageNum: 0
-    stage: {fileID: 0}
+    stage: {fileID: 7444181801001568469, guid: 8ee85e1bbfcdc1f45bc24bfa80772deb, type: 3}
     scoreRankDate: {fileID: 0}
     stageBgmName: 
   - stageNum: 1
