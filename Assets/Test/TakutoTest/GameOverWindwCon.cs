@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class GameOverWindwCon : MonoBehaviour, IUiHandler
 {
-    [SerializeField] Button m_retryButton;
     [SerializeField] Button m_giveupButton;
 
     CanvasGroup m_canvasGroup;
@@ -13,8 +12,7 @@ public class GameOverWindwCon : MonoBehaviour, IUiHandler
     {
         m_canvasGroup = GetComponent<CanvasGroup>();
 
-        m_retryButton.gameObject.SetActive(false);
-        m_giveupButton.gameObject.SetActive(false);
+        m_giveupButton.interactable = false;
 
         Disable();
     }
@@ -32,8 +30,7 @@ public class GameOverWindwCon : MonoBehaviour, IUiHandler
 
         yield return new WaitForSeconds(1);
 
-        m_retryButton.gameObject.SetActive(true);
-        m_giveupButton.gameObject.SetActive(true);
+        m_giveupButton.interactable = true;
     }
 
     public void Enable()

@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_flowerGetFadeTime: 5
+  m_clearBgm: Future_Girl
 --- !u!1 &2097193857
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d0e0a7b5173611458f44bf22f4f34dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_bgmName: "\u6226\u3044\u306E\u65C5\u8DEF\u3092\u5F81\u304F"
 --- !u!114 &8428165
 MonoBehaviour:
   m_ObjectHideFlags: 0

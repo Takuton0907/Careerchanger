@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cloud: {fileID: 7185772921464965344}
   m_cloudSpeed: 0
-  m_playerSpeedAdd: 0.2
 --- !u!1 &7185772921464965344
 GameObject:
   m_ObjectHideFlags: 0

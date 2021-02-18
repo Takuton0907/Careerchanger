@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_moveState: 0
   m_damageSe: damage
   m_piece: 1
-  m_speed: 3
+  m_speed: 5
 --- !u!114 &1421811134156230568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1280,8 +1280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19119e5a503b6848914bfae7034d825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJump: 4
-  jumpSpeed: 5
+  maxJump: 1
+  jumpSpeed: 12
   flightIntervalTime: 1
   cameraAdjust: {x: 0, y: 0, z: 0}
 --- !u!1 &1141654811950045128

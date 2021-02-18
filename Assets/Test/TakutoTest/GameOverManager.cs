@@ -41,6 +41,7 @@ public class GameOverManager : MonoBehaviour
     /// <summary> ゲームオーバー </summary>
     public void GameOver()
     {
+        AudioManager.Instance.PlayBGM("system_ZERO");
         StartCoroutine(GameOverCoroutine());
     }
 

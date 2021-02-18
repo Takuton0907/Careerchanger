@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GameClearManager : MonoBehaviour
 {
-    [Header("花を取った後のフェードする時間"), SerializeField] 
+    [Header("花を取った後のフェードする時間"), SerializeField]
     float m_flowerGetFadeTime = 5;
+
+    [SerializeField] string m_clearBgm = "Future_Girl";
 
     string m_clearSe = "Clear";
 
@@ -46,6 +48,7 @@ public class GameClearManager : MonoBehaviour
     /// <summary> 花を獲得した後の演出を管理しています </summary>
     public void GameClear()
     {
+        AudioManager.Instance.PlayBGM(m_clearBgm);
         StartCoroutine(GameClearCoroutine());
     }
 
@@ -55,18 +58,10 @@ public class GameClearManager : MonoBehaviour
 
         DataManager.Instance.StageClear();
 
-        //StartCoroutine(FindObjectOfType<MainUICon>().MainUIFadeOut());
-
-        if (m_clearPerformancesCon != null)
+        if (m_gameClearCon != null)
         {
-            AudioManager.Instance.PlaySE(m_clearSe);
-            yield return m_clearPerformancesCon.GetFlower(m_flowerGetFadeTime);
-            StartCoroutine(m_gameClearCon.FadeInStageClearText());
-            StartCoroutine(m_gameClearCon.FadeOutStageClearText());
+            yield return m_gameClearCon.InstanceGameClearUI();
         }
         else yield return null;
-
-        if (m_gameClearCon != null) yield return m_gameClearCon.InstanceGameClearUI();
-        else yield return null;
-    }
+    } 
 }

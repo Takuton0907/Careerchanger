@@ -37,6 +37,7 @@ public class AttackManager : MonoBehaviour
         m_attacks[type].gameObject.SetActive(true);
 
         m_attacks[type].Attack();
+        StartCoroutine(WeaponActiveFalse(m_attacks[type].gameObject));
 
         if (m_comboManager == null) return;
         List<AttackMode> attackModes = m_comboManager.Combo(attackMode, combo);
@@ -84,5 +85,12 @@ public class AttackManager : MonoBehaviour
         {
             item.SetRevastTime(m_attacks[weaponDic[item.GetAttackMode()]].GetRecastTime());
         }
+    }
+
+    private IEnumerator WeaponActiveFalse(GameObject obj)
+    {
+        yield return new WaitForSeconds(1);
+        obj.SetActive(false);
+
     }
 }

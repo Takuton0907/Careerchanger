@@ -18,6 +18,8 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
     //レベルの進行管理
     LevelState levelState = LevelState.Init;
 
+    [SerializeField] string m_bgmName = "戦いの旅路を征く";
+
     #region 他のManager参照まとめ
     private MoveObjectManager m_moveObjectManager;
     public MoveObjectManager MoveObjectManager
@@ -96,7 +98,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
     private void Start()
     {
         StateChange(LevelState.Init); 
-        AudioManager.Instance.PlayBGM(DataManager.Instance.GetStage().stageBgmName);
+        AudioManager.Instance.PlayBGM(m_bgmName);
     }
     private void Update()
     {
@@ -135,6 +137,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
             case LevelState.GameOver:
                 break;
             case LevelState.Clear:
+                m_moveObjectManager?.ManagedUpdate();
                 break;
             case LevelState.Result:
                 break;

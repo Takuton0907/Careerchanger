@@ -1,9 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameClearCon : MonoBehaviour, IUiHandler
 {
     CanvasGroup m_scoerGroup;
+
+    [SerializeField] Text m_enemyText;
+    [SerializeField] Text m_brakeText;
+    [SerializeField] Text m_scoreText;
+    [SerializeField] Image m_scoreImage;
+    [SerializeField] Sprite[] m_scoreSprites;
+
+    [SerializeField] Image m_clearImage = null;
 
     private void Awake()
     {
@@ -17,6 +26,22 @@ public class GameClearCon : MonoBehaviour, IUiHandler
         ScoreManager scoreManager = LevelManager.Instance.ScoreManager;
 
         scoreManager.Resalt();
+        m_enemyText.text = scoreManager.DefeatedEnemies.ToString("0");
+        m_brakeText.text = scoreManager.Combo.ToString("0");
+        m_scoreText.text = scoreManager.Score.ToString("0");
+
+        switch (scoreManager.StageClearRank)
+        {
+            case StageClearRank.A:
+                m_scoreImage.sprite = m_scoreSprites[0];
+                break;
+            case StageClearRank.B:
+                m_scoreImage.sprite = m_scoreSprites[1];
+                break;
+            case StageClearRank.C:
+                m_scoreImage.sprite = m_scoreSprites[2];
+                break;
+        }
 
         interval = 1;
         float time = 0;
@@ -36,16 +61,6 @@ public class GameClearCon : MonoBehaviour, IUiHandler
             yield return null;
         }
 
-        switch (scoreManager.StageClearRank)
-        {
-            case StageClearRank.A:
-                break;
-            case StageClearRank.B:
-                break;
-            case StageClearRank.C:
-                break;
-        }
-
         m_scoerGroup.blocksRaycasts = true;
 
         yield return new WaitForSeconds(1);
@@ -57,6 +72,7 @@ public class GameClearCon : MonoBehaviour, IUiHandler
         float time = 0;
         while (time <= interval)
         {
+            m_clearImage.color = new Color(1, 1, 1, time / interval);
             time += Time.deltaTime;
             yield return null;
         }
@@ -71,6 +87,7 @@ public class GameClearCon : MonoBehaviour, IUiHandler
         float time = 0;
         while (time <= interval)
         {
+            m_clearImage.color = new Color(1, 1, 1, time / interval);
             time += Time.deltaTime;
             yield return null;
         }
