@@ -14,6 +14,10 @@ public class ComboManager : MonoBehaviour
         LevelManager.Instance.ComboManager = this;
     }
 
+    public delegate void ComboComplete();
+    event ComboComplete m_comboComplete;
+    public event ComboComplete ComboCompleteCallBack { add { m_comboComplete += value; } remove { m_comboComplete -= value; } }
+
     /// <summary> コンボ </summary>
     public List<AttackMode> Combo(AttackMode attackMode, bool combo)
     {
@@ -53,6 +57,7 @@ public class ComboManager : MonoBehaviour
                     m_comboCounter = 0;
                     m_combos = null;
                     Debug.Log("コンボ完了！");
+                    m_comboComplete?.Invoke();
                     return null;
                     //コンボが最後まで行った
                 }

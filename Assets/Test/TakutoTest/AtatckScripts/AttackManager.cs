@@ -40,11 +40,15 @@ public class AttackManager : MonoBehaviour
         m_attacks[type].gameObject.SetActive(true);
 
         m_attacks[type].Attack();
-        StartCoroutine(WeaponActiveFalse(m_attacks[type].gameObject));
+
+        if (attackMode != AttackMode.Smash)
+        {
+            StartCoroutine(WeaponActiveFalse(m_attacks[type].gameObject));
+        }
 
         if (m_comboManager == null) return;
         List<AttackMode> attackModes = m_comboManager.Combo(attackMode, combo);
-        if (attackModes != null) _attackEvent?.Invoke(attackModes);
+        _attackEvent?.Invoke(attackModes);
     }
     /// <summary> 各武器の生成 </summary>
     private void WeaponsInstance()

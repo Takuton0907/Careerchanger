@@ -5,6 +5,12 @@ public class SmashButton : AttackButton
 {
     protected override void Start()
     {
+        Button button = GetComponent<Button>();
+        FindObjectOfType<ComboManager>().ComboCompleteCallBack += () =>
+        {
+            AudioManager.Instance.PlaySE("sound_system_smashcharge");
+            button.interactable = true;
+        };
         base.Start();
         m_myAttackMode = AttackMode.Smash;
         m_button = GetComponent<Button>();

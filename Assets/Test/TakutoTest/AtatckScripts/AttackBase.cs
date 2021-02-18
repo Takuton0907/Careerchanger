@@ -12,7 +12,7 @@ public abstract class AttackBase : MonoBehaviour
     {
         StartCoroutine(AttackCoroutine());
     }
-    protected void Start()
+    protected virtual void Start()
     {
         m_collider = GetComponent<BoxCollider2D>();
     }

@@ -12,6 +12,8 @@ public class AttackButton : MonoBehaviour
 
     [SerializeField] float m_recastTime = 5;
 
+    [SerializeField] Button m_redButton;
+
     bool m_nextCombo = false;
     protected AttackManager m_attackCon;
     protected Button m_button;
@@ -41,11 +43,24 @@ public class AttackButton : MonoBehaviour
 
     public void ComboChanger(List<AttackMode> attackModes)
     {
+        if (attackModes == null)
+        {
+            m_nextCombo = false;
+            if (m_redButton)
+            {
+                m_redButton.interactable = false;
+            }
+            return;
+        }
         foreach (var item in attackModes)
         {
             if (item == m_myAttackMode)
             {
                 m_nextCombo = true;
+                if (m_redButton)
+                {
+                    m_redButton.interactable = true;
+                }
                 Debug.Log($"{gameObject.name}の{m_myAttackMode}が次のコンボ対象です");
                 return;
             }
@@ -56,6 +71,10 @@ public class AttackButton : MonoBehaviour
         }
         if(!m_nextCombo)
         {
+            if (m_redButton)
+            {
+                m_redButton.interactable = false;
+            }
             Debug.Log($"{gameObject.name}の({m_myAttackMode})は次のコンボ対象ではありません");
         }
     }
