@@ -22,9 +22,9 @@ public abstract class EnemyBase : MovingObject, IDamageHandler
 
     [Header("Audio")]
     /// <summary> 死亡時に流すサウンド </summary>
-    [SerializeField] private string m_desClipName = "ClipName";
+    [SerializeField] private string m_desClipName = "sound_e_damage";
     /// <summary> ダメージを受けた時に流すサウンド </summary>
-    [SerializeField] private string m_dmageClipName = "ClipName";
+    [SerializeField] private string m_dmageClipName = "sound_e_damage";
     [Header("ダメージ関連")]
     /// <summary> ダメージを受けてから歩くまでの時間 </summary>
     [SerializeField] private float m_damageTime = 1.5f;
@@ -65,17 +65,11 @@ public abstract class EnemyBase : MovingObject, IDamageHandler
         {
             gameObject.SetActive(false);
         }
-
-        if (TryGetComponent(out TrrigerHitAttack hitAttack))
-        {
-            hitAttack.SetAttackFunc(Attack);
-        }
     }
     protected virtual void OnDisable()
     {
         StateChange(MoveState.Stop);
     }
-
 
     public void Damage(int value)
     {
