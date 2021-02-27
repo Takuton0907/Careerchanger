@@ -1,24 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class TitleManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float fadeInterval = 2;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] Animator m_animator = null;
+
+    [SerializeField] string m_bgmNamae = "導きの旅人";
+
+    [SerializeField] string m_tochSe = "sound_ok";
+
+    private void Start()
     {
-        
+        AudioManager.Instance.PlayBGM(m_bgmNamae);
     }
 
     public void OnClickGamaStart()
     {
-        SceneManager.LoadScene("StageSelect");
+        FadeManager.Instance.LoadScene("StageSelect", fadeInterval);
+        AudioManager.Instance.PlaySE(m_tochSe);
+    }
+
+    public void OnClickTouch()
+    {
+        m_animator?.SetTrigger("Tocuh");
+        AudioManager.Instance.PlaySE(m_tochSe);
     }
 }
